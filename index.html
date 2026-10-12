@@ -100,7 +100,7 @@
 
     /* ==================== HERO ==================== */
     #home {
-      padding-top: 76px;
+      padding-top: 40px; /* Nav bar ke bilkul paas se start */
       padding-bottom: 0;
       background: var(--white);
       position: relative;
@@ -136,8 +136,8 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      /* PHOTO AUR UPAR SHIFT -220px */
-      margin-top: -220px;
+      /* PHOTO EKDUM UPAR SHIFT -320px */
+      margin-top: -320px;
     }
     /* Geometric blue shapes behind the photo */
     .hero-photo-wrap::before {
@@ -170,16 +170,16 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      /* PHOTO AUR BADI - 880px */
-      max-width: 880px;
+      /* PHOTO AUR BADI - 1050px */
+      max-width: 1050px;
       height: auto;
       filter: drop-shadow(0 30px 50px rgba(16, 46, 105, 0.4));
     }
 
     .hero-text {
       padding-right: 20px;
-      /* TEXT AUR UPAR SHIFT - 180px */
-      padding-top: 180px;
+      /* TEXT PHOTO KE SAATH LEVEL */
+      padding-top: 260px;
     }
     .hero-eyebrow {
       display: inline-block;
@@ -478,9 +478,14 @@
     }
 
     /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1200px) {
+      .hero-photo-wrap img { max-width: 900px; }
+      .hero-photo-wrap { margin-top: -240px; }
+      .hero-text { padding-top: 200px; }
+    }
     @media (max-width: 1024px) {
       .hero-grid { gap: 20px; }
-      .hero-photo-wrap img { max-width: 700px; }
+      .hero-photo-wrap img { max-width: 750px; }
       .hero-photo-wrap { margin-top: -160px; }
       .hero-text { padding-top: 140px; }
       .about-grid { gap: 40px; }
