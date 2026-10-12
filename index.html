@@ -100,14 +100,15 @@
 
     /* ==================== HERO ==================== */
     #home {
-      padding-top: 76px; /* Nav bar ki height ke barabar */
-      padding-bottom: 0;
+      /* Nav bar ke thoda neeche se start */
+      padding-top: 76px;
+      padding-bottom: 40px;
       background: var(--white);
       position: relative;
       overflow: hidden;
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: flex-start; /* Content ko upar align karta hai */
     }
     /* Blue geometric outer background accents */
     #home::before {
@@ -123,33 +124,33 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      /* Photo aur text dono ko center vertically align karta hai */
-      align-items: center;
+      gap: 20px;
+      /* Text aur photo dono top se align */
+      align-items: flex-start;
       position: relative;
       z-index: 1;
       width: 100%;
-      /* Height fix taaki content center rahe */
-      min-height: calc(100vh - 76px);
+      /* Content ko upar shift karne ke liye */
+      padding-top: 40px;
     }
     .hero-photo-wrap {
       position: relative;
       display: flex;
       justify-content: center;
-      /* Photo ko upar le jata hai */
+      /* Photo ko top pe align */
       align-items: flex-start;
-      /* Negative margin se photo aur upar shift hogi */
-      margin-top: -80px;
+      /* Photo ko aur upar shift */
+      margin-top: -30px;
     }
     /* Geometric blue shapes behind the photo */
     .hero-photo-wrap::before {
       content: '';
       position: absolute;
-      top: 60px;
+      top: 30px;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
-      height: 85%;
+      height: 90%;
       background: linear-gradient(135deg, var(--royal), var(--bright));
       clip-path: polygon(50% 0, 100% 25%, 90% 100%, 10% 100%, 0 25%);
       z-index: 0;
@@ -158,11 +159,11 @@
     .hero-photo-wrap::after {
       content: '';
       position: absolute;
-      top: 80px;
+      top: 50px;
       left: 50%;
       transform: translateX(-50%);
       width: 110%;
-      height: 80%;
+      height: 85%;
       background: linear-gradient(135deg, var(--navy), var(--royal));
       clip-path: polygon(50% 0, 100% 25%, 90% 100%, 10% 100%, 0 25%);
       z-index: -1;
@@ -172,7 +173,8 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 620px; /* Photo size badi ki */
+      /* PHOTO AUR BADI - 680px */
+      max-width: 680px;
       height: auto;
       object-fit: contain;
       object-position: top center;
@@ -181,7 +183,7 @@
 
     .hero-text {
       padding-right: 20px;
-      /* Text ko photo ke saath top align karta hai */
+      /* Text ko top pe */
       padding-top: 20px;
     }
     .hero-eyebrow {
@@ -293,10 +295,11 @@
 
     /* ==================== PROJECTS ==================== */
     #projects { background: var(--light); }
+    /* 2x2 GRID - 2 upar, 2 neeche */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 28px;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
     }
     .project-card {
       background: var(--white);
@@ -312,7 +315,7 @@
       box-shadow: 0 20px 40px rgba(16, 46, 105, 0.12);
     }
     .project-art {
-      height: 160px;
+      height: 200px; /* Bada kiya */
       background: linear-gradient(135deg, var(--royal), var(--bright));
       display: flex;
       align-items: center;
@@ -327,23 +330,23 @@
       width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
     }
-    .project-art svg { width: 90px; height: 90px; position: relative; z-index: 1; }
-    .project-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
-    .project-card h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: 8px; font-weight: 700; }
-    .project-card .desc { color: var(--body); font-size: 0.9rem; flex: 1; margin-bottom: 18px; line-height: 1.6; }
-    .project-card .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+    .project-art svg { width: 110px; height: 110px; position: relative; z-index: 1; }
+    .project-body { padding: 32px; display: flex; flex-direction: column; flex: 1; }
+    .project-card h3 { font-size: 1.35rem; color: var(--navy); margin-bottom: 10px; font-weight: 700; }
+    .project-card .desc { color: var(--body); font-size: 0.95rem; flex: 1; margin-bottom: 20px; line-height: 1.7; }
+    .project-card .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
     .project-card .stack span {
-      font-size: 0.7rem;
-      padding: 4px 12px;
+      font-size: 0.75rem;
+      padding: 5px 14px;
       border-radius: 20px;
       background: rgba(6, 71, 196, 0.08);
       color: var(--royal);
       font-weight: 600;
     }
     .project-card .status {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: var(--body);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -351,16 +354,17 @@
     }
     .project-card .status::before {
       content: '';
-      width: 6px; height: 6px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: #10B981;
+      box-shadow: 0 0 8px #10B981;
     }
-    .project-card .links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .project-card .links { display: flex; gap: 12px; flex-wrap: wrap; }
     .project-card .links a {
-      font-size: 0.8rem;
-      padding: 8px 16px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
       color: var(--navy);
       font-weight: 600;
       transition: all var(--transition);
@@ -482,11 +486,14 @@
 
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 1024px) {
-      .hero-grid { gap: 20px; min-height: auto; padding: 40px 0; }
-      .hero-photo-wrap { margin-top: -40px; }
-      .hero-photo-wrap img { max-width: 480px; }
+      .hero-grid { gap: 20px; }
+      .hero-photo-wrap img { max-width: 540px; }
       .about-grid { gap: 40px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      /* Tablet pe project 2x2 se 1 column ho jaye */
+      .project-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
     }
     @media (max-width: 768px) {
       .nav-links {
@@ -502,18 +509,21 @@
       .nav-links.open { display: flex; }
       .nav-links a { width: 100%; padding: 12px 16px; }
       .hamburger { display: block; }
-      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 20px; padding: 20px 0 40px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 20px; padding-top: 10px; }
       .hero-text { padding-right: 0; padding-top: 0; }
       .hero-desc { margin: 0 auto 32px; }
       .btn-group { justify-content: center; }
       .hero-photo-wrap { order: -1; margin-top: 0; }
       .hero-photo-wrap img { max-width: 380px; }
-      .hero-photo-wrap::before, .hero-photo-wrap::after { top: 30px; }
-      #home { min-height: auto; padding-bottom: 60px; }
+      .hero-photo-wrap::before, .hero-photo-wrap::after { top: 20px; }
+      #home { min-height: auto; padding-bottom: 60px; padding-top: 100px; }
       #home::before { width: 100%; height: 45%; top: auto; bottom: 0; clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%); }
       .about-grid { grid-template-columns: 1fr; }
       section { padding: 70px 0; }
       .footer-grid { grid-template-columns: 1fr; }
+      /* Mobile pe projects 1 column */
+      .project-grid { grid-template-columns: 1fr; }
+      .project-art { height: 160px; }
     }
     @media (max-width: 480px) {
       .hero-title { font-size: 2rem; }
@@ -521,6 +531,7 @@
       .contact-grid { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr; }
       .hero-photo-wrap img { max-width: 320px; }
+      .project-body { padding: 24px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -565,13 +576,6 @@
         </div>
       </div>
       <div class="hero-photo-wrap">
-        <!-- 
-          ============================================================
-          YOUR PHOTO — Now bigger, top-aligned, and matching text level
-          ============================================================
-          Make sure "Mayuu.jpg" is in the SAME FOLDER as this file.
-          ============================================================
-        -->
         <img src="Mayuu.jpg" alt="Mayur Pisal" loading="eager" />
       </div>
     </div>
@@ -705,10 +709,6 @@
 
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
-    // ============================================================
-    // CONFIGURATION
-    // ============================================================
-
     const CONFIG = {
       email: "mayou7496@gmail.com",
       instagramUrl: "https://instagram.com/mayur_9903_",
@@ -754,10 +754,6 @@
       ]
     };
 
-    // ============================================================
-    // PROJECT ART
-    // ============================================================
-
     function getProjectArt(type) {
       const artMap = {
         camera: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
@@ -788,10 +784,6 @@
       };
       return artMap[type] || artMap.chart;
     }
-
-    // ============================================================
-    // RENDER PROJECTS
-    // ============================================================
 
     const projectGrid = document.getElementById('projectGrid');
 
@@ -824,10 +816,6 @@
 
     renderProjects();
 
-    // ============================================================
-    // RENDER CONTACTS
-    // ============================================================
-
     const contactGrid = document.getElementById('contactGrid');
     const footerSocial = document.getElementById('footerSocial');
 
@@ -854,10 +842,6 @@
     }
 
     renderContacts();
-
-    // ============================================================
-    // NAVIGATION
-    // ============================================================
 
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
