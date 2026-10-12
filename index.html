@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+</body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -39,19 +41,16 @@
     /* ==================== CUSTOM GLOW CURSOR ==================== */
     .cursor-glow {
       position: fixed;
-      width: 300px;
-      height: 300px;
+      width: 300px; height: 300px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(6, 71, 196, 0.15) 0%, transparent 70%);
       pointer-events: none;
       z-index: 9999;
       transform: translate(-50%, -50%);
-      transition: opacity 0.3s;
     }
     .cursor-dot {
       position: fixed;
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--royal);
       pointer-events: none;
@@ -61,13 +60,11 @@
       box-shadow: 0 0 15px rgba(6, 71, 196, 0.8);
     }
     .cursor-dot.hovering {
-      width: 20px;
-      height: 20px;
+      width: 20px; height: 20px;
       background: var(--bright);
-      box-shadow: 0 0 25px rgba(40, 120, 229, 0.9);
     }
 
-    /* ==================== BACKGROUND LIGHTS & ORBS ==================== */
+    /* ==================== BACKGROUND LIGHTS ==================== */
     .bg-lights {
       position: fixed;
       inset: 0;
@@ -86,7 +83,6 @@
       width: 500px; height: 500px;
       background: radial-gradient(circle, rgba(40, 120, 229, 0.4), transparent);
       top: -10%; right: -5%;
-      animation-delay: 0s;
     }
     .orb-2 {
       width: 400px; height: 400px;
@@ -151,7 +147,7 @@
     }
     .section-desc { color: var(--body); font-size: 1.05rem; max-width: 640px; }
 
-    /* ==================== SCROLL REVEAL ANIMATION ==================== */
+    /* ==================== SCROLL REVEAL ==================== */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -222,12 +218,10 @@
       border-radius: 8px !important;
       font-weight: 600 !important;
       box-shadow: 0 4px 14px rgba(6, 71, 196, 0.25);
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
     }
-    .nav-cta:hover { background: var(--bright) !important; transform: translateY(-1px) scale(1.02); }
     .hamburger { display: none; font-size: 1.5rem; color: var(--navy); }
 
-    /* ==================== HERO ==================== */
+    /* ==================== HERO (DESKTOP) ==================== */
     #home {
       padding-top: 80px;
       padding-bottom: 0;
@@ -249,8 +243,6 @@
       padding-top: 20px;
       padding-bottom: 40px;
     }
-
-    /* ==================== 3D PHOTO ==================== */
     .hero-photo-wrap {
       position: relative;
       display: flex;
@@ -258,7 +250,6 @@
       align-items: flex-start;
       margin-top: -280px;
       perspective: 1500px;
-      transition: transform 0.3s ease-out;
     }
     .hero-photo-wrap img {
       position: relative;
@@ -275,15 +266,7 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-    .hero-photo-wrap img:hover {
-      filter: drop-shadow(0 40px 60px rgba(6, 71, 196, 0.5));
-    }
-
-    /* ==================== HERO TEXT ==================== */
-    .hero-text {
-      padding-right: 20px;
-      padding-top: 100px;
-    }
+    .hero-text { padding-right: 20px; padding-top: 100px; }
     .hero-eyebrow {
       display: inline-block;
       font-size: 0.7rem;
@@ -295,11 +278,6 @@
       background: rgba(40, 120, 229, 0.1);
       border-radius: 20px;
       margin-bottom: 20px;
-      animation: pulseGlow 3s ease-in-out infinite;
-    }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(40, 120, 229, 0.3); }
-      50% { box-shadow: 0 0 20px 4px rgba(40, 120, 229, 0.15); }
     }
     .hero-title {
       font-size: clamp(2.2rem, 5vw, 3.5rem);
@@ -318,8 +296,7 @@
       content: '';
       position: absolute;
       bottom: 4px; left: 0;
-      width: 100%;
-      height: 8px;
+      width: 100%; height: 8px;
       background: rgba(40, 120, 229, 0.2);
       z-index: -1;
       border-radius: 4px;
@@ -336,8 +313,6 @@
       margin-bottom: 32px;
       max-width: 500px;
     }
-
-    /* ==================== BUTTONS WITH CLICK ANIMATION ==================== */
     .btn-group { display: flex; flex-wrap: wrap; gap: 14px; }
     .btn {
       display: inline-flex;
@@ -353,46 +328,21 @@
       overflow: hidden;
       cursor: none;
     }
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 0; height: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.4);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s ease, height 0.6s ease;
-      pointer-events: none;
-    }
-    .btn:active::before {
-      width: 400px;
-      height: 400px;
-      transition: 0s;
-    }
-    .btn:active {
-      transform: scale(0.95) !important;
-    }
     .btn-primary {
       background: var(--royal);
       color: var(--white);
       box-shadow: 0 6px 20px rgba(6, 71, 196, 0.3);
     }
-    .btn-primary:hover {
-      background: var(--bright);
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 12px 30px rgba(6, 71, 196, 0.45);
-    }
+    .btn-primary:hover { background: var(--bright); transform: translateY(-3px) scale(1.03); }
     .btn-outline {
       border-color: var(--navy);
       color: var(--navy);
       background: transparent;
     }
-    .btn-outline:hover {
-      background: var(--navy);
-      color: var(--white);
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 12px 30px rgba(16, 46, 105, 0.3);
-    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); transform: translateY(-3px) scale(1.03); }
+
+    /* ==================== MOBILE HERO (hidden on desktop) ==================== */
+    .mobile-hero { display: none; }
 
     /* ==================== ABOUT ==================== */
     #about { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
@@ -421,12 +371,10 @@
       padding: 24px;
       border-left: 4px solid var(--royal);
       transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-      cursor: none;
     }
     .about-stat:hover {
       transform: translateY(-6px) scale(1.03);
       box-shadow: 0 15px 35px rgba(6, 71, 196, 0.15);
-      border-left-width: 6px;
     }
     .about-stat .num {
       font-size: 1.6rem;
@@ -451,28 +399,10 @@
       box-shadow: 0 4px 20px rgba(16, 46, 105, 0.06);
       display: flex;
       flex-direction: column;
-      position: relative;
-      cursor: none;
-    }
-    .project-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      border: 2px solid transparent;
-      transition: border-color 0.3s;
-      pointer-events: none;
-    }
-    .project-card:hover::after {
-      border-color: rgba(6, 71, 196, 0.2);
     }
     .project-card:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 25px 50px rgba(16, 46, 105, 0.18);
-    }
-    .project-card:active {
-      transform: translateY(-4px) scale(0.99);
-      transition: transform 0.1s;
     }
     .project-art {
       height: 160px;
@@ -483,20 +413,7 @@
       position: relative;
       overflow: hidden;
     }
-    .project-art::before {
-      content: '';
-      position: absolute;
-      top: -50%; right: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
-      animation: artShine 4s linear infinite;
-    }
-    @keyframes artShine {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .project-art svg { width: 90px; height: 90px; position: relative; z-index: 1; transition: transform 0.4s; }
-    .project-card:hover .project-art svg { transform: scale(1.15) rotate(5deg); }
+    .project-art svg { width: 90px; height: 90px; position: relative; z-index: 1; }
     .project-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
     .project-card h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: 8px; font-weight: 700; }
     .project-card .desc { color: var(--body); font-size: 0.9rem; flex: 1; margin-bottom: 18px; line-height: 1.6; }
@@ -508,11 +425,6 @@
       background: rgba(6, 71, 196, 0.08);
       color: var(--royal);
       font-weight: 600;
-      transition: all 0.3s;
-    }
-    .project-card:hover .stack span {
-      background: rgba(6, 71, 196, 0.15);
-      transform: translateY(-2px);
     }
     .project-card .status {
       font-size: 0.75rem;
@@ -521,7 +433,6 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: 500;
     }
     .project-card .status::before {
       content: '';
@@ -529,11 +440,6 @@
       border-radius: 50%;
       background: #10B981;
       box-shadow: 0 0 8px #10B981;
-      animation: statusPulse 2s ease-in-out infinite;
-    }
-    @keyframes statusPulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.5); opacity: 0.6; }
     }
     .project-card .links { display: flex; gap: 10px; flex-wrap: wrap; }
     .project-card .links a {
@@ -543,20 +449,13 @@
       border: 1px solid var(--border);
       color: var(--navy);
       font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      cursor: none;
-      position: relative;
-      overflow: hidden;
+      transition: all 0.3s;
     }
     .project-card .links a:hover {
       background: var(--royal);
       color: var(--white);
       border-color: var(--royal);
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(6, 71, 196, 0.3);
-    }
-    .project-card .links a:active {
-      transform: scale(0.95);
     }
 
     /* ==================== SKILLS ==================== */
@@ -575,15 +474,12 @@
       gap: 14px;
       transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       border-left: 4px solid var(--royal);
-      cursor: none;
     }
     .skill-item:hover {
       transform: translateY(-6px) scale(1.05);
       box-shadow: 0 15px 35px rgba(6, 71, 196, 0.2);
-      border-left-width: 6px;
     }
-    .skill-item .icon { font-size: 1.4rem; transition: transform 0.3s; }
-    .skill-item:hover .icon { transform: scale(1.3) rotate(10deg); }
+    .skill-item .icon { font-size: 1.4rem; }
     .skill-item .text { font-size: 0.95rem; font-weight: 600; color: var(--navy); }
 
     /* ==================== VISION ==================== */
@@ -591,24 +487,10 @@
       background: linear-gradient(135deg, rgba(16, 46, 105, 0.95), rgba(6, 71, 196, 0.95));
       color: var(--white);
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    #vision::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
-      animation: visionGlow 10s linear infinite;
-    }
-    @keyframes visionGlow {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
     #vision .section-label { color: rgba(255,255,255,0.7); }
     #vision .section-title { color: var(--white); }
-    .vision-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+    .vision-content { max-width: 800px; margin: 0 auto; }
     .vision-content p {
       color: rgba(255,255,255,0.9);
       font-size: 1.15rem;
@@ -640,15 +522,11 @@
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       box-shadow: 0 4px 20px rgba(16, 46, 105, 0.05);
       border-bottom: 3px solid transparent;
-      cursor: none;
     }
     .contact-card:hover {
       transform: translateY(-6px) scale(1.03);
       border-bottom-color: var(--royal);
       box-shadow: 0 20px 40px rgba(6, 71, 196, 0.15);
-    }
-    .contact-card:active {
-      transform: scale(0.98);
     }
     .contact-card .icon {
       font-size: 1.6rem;
@@ -659,11 +537,6 @@
       background: rgba(6, 71, 196, 0.08);
       border-radius: 12px;
       flex-shrink: 0;
-      transition: all 0.3s;
-    }
-    .contact-card:hover .icon {
-      background: var(--royal);
-      transform: rotate(-10deg) scale(1.1);
     }
     .contact-card .label { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
     .contact-card .value { font-size: 0.85rem; color: var(--body); word-break: break-all; }
@@ -673,8 +546,6 @@
       background: var(--navy);
       color: rgba(255,255,255,0.8);
       padding: 60px 0 30px;
-      position: relative;
-      z-index: 2;
     }
     .footer-grid {
       display: grid;
@@ -686,7 +557,7 @@
     .footer-brand span { color: var(--bright); }
     .footer-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.7); max-width: 320px; line-height: 1.7; }
     .footer-col h4 { color: var(--white); font-size: 0.9rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.1em; }
-    .footer-col a { display: block; color: rgba(255,255,255,0.7); font-size: 0.9rem; padding: 4px 0; transition: all 0.3s; cursor: none; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.7); font-size: 0.9rem; padding: 4px 0; }
     .footer-col a:hover { color: var(--white); transform: translateX(5px); }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -697,27 +568,24 @@
     }
 
     /* ============================================================
-       RESPONSIVE — MOBILE FIRST ADJUSTMENTS
+       MOBILE LAYOUT (max-width: 768px) — screenshot jaisa
        ============================================================ */
-
-    /* Tablet — 1024px */
-    @media (max-width: 1024px) {
-      .hero-grid { gap: 20px; }
-      .hero-photo-wrap img { max-width: 600px; }
-      .hero-photo-wrap { margin-top: -80px; }
-      .hero-text { padding-top: 60px; }
-      .about-grid { gap: 40px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* Large phones / small tablets — 768px */
     @media (max-width: 768px) {
-      /* Disable custom cursor on touch devices */
+      /* Disable custom cursor */
       body { cursor: auto; }
       .cursor-glow, .cursor-dot { display: none !important; }
       button, a, .project-card, .skill-item, .contact-card, .about-stat { cursor: pointer; }
 
-      /* Navigation — mobile menu */
+      /* Reduce orbs */
+      .orb-1 { width: 300px; height: 300px; }
+      .orb-2 { width: 260px; height: 260px; }
+      .orb-3 { width: 220px; height: 220px; }
+
+      /* Hide desktop hero, show mobile hero */
+      .hero-grid { display: none; }
+      .mobile-hero { display: block; }
+
+      /* Nav */
       .nav-links {
         display: none;
         position: absolute;
@@ -737,179 +605,350 @@
         border-radius: 10px;
       }
       .nav-links a.active::after { display: none; }
-      .nav-cta {
-        text-align: center;
-        margin-top: 8px;
-      }
+      .nav-cta { text-align: center; margin-top: 8px; }
       .hamburger { display: block; }
       .nav-inner { height: 68px; }
       .brand { font-size: 1.1rem; }
 
-      /* Hero — stack vertically, photo first, smaller */
-      #home { padding-top: 90px; padding-bottom: 40px; }
-      .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 24px;
-        padding-top: 10px;
-        padding-bottom: 20px;
-      }
-      .hero-text { padding-right: 0; padding-top: 0; order: 2; }
-      .hero-photo-wrap {
-        order: 1;
-        margin-top: 0;
-        perspective: none;
-      }
-      .hero-photo-wrap img {
-        max-width: 340px;
-        margin: 0 auto;
-        animation: photoFloatMobile 4s ease-in-out infinite;
-      }
-      @keyframes photoFloatMobile {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-6px); }
-      }
-      .hero-eyebrow {
-        font-size: 0.62rem;
-        padding: 5px 12px;
-        margin-bottom: 16px;
-      }
-      .hero-title {
-        font-size: 1.9rem;
-        margin-bottom: 10px;
-      }
-      .hero-tagline {
-        font-size: 0.95rem;
-        margin-bottom: 16px;
-      }
-      .hero-desc {
-        font-size: 0.9rem;
-        margin: 0 auto 24px;
-        line-height: 1.65;
-      }
-      .btn-group { justify-content: center; gap: 10px; }
-      .btn {
-        padding: 12px 20px;
-        font-size: 0.82rem;
-        width: 100%;
-        max-width: 320px;
-        justify-content: center;
-      }
-
-      /* Sections — reduce padding */
+      /* Sections */
       section { padding: 60px 0; }
       .container { padding: 0 18px; }
       .section-label { font-size: 0.68rem; }
-      .section-title { font-size: 1.55rem; margin-bottom: 12px; }
-      .section-desc { font-size: 0.92rem; margin-bottom: 32px !important; }
+      .section-title { font-size: 1.55rem; }
+      .section-desc { font-size: 0.92rem; }
 
-      /* About — stack, smaller stats */
+      /* About */
       .about-grid { grid-template-columns: 1fr; gap: 28px; }
-      .about-content p { font-size: 0.94rem; line-height: 1.7; margin-bottom: 12px; }
-      .about-stats { gap: 12px; margin-top: 20px; }
-      .about-stat { padding: 18px; border-radius: 10px; }
+      .about-content p { font-size: 0.94rem; line-height: 1.7; }
+      .about-stats { gap: 12px; }
+      .about-stat { padding: 18px; }
       .about-stat .num { font-size: 1.35rem; }
       .about-stat .label { font-size: 0.78rem; }
 
-      /* Projects — single column, smaller cards */
+      /* Projects */
       .project-grid { grid-template-columns: 1fr; gap: 20px; }
       .project-art { height: 130px; }
       .project-art svg { width: 70px; height: 70px; }
       .project-body { padding: 20px; }
-      .project-card h3 { font-size: 1.05rem; }
-      .project-card .desc { font-size: 0.85rem; margin-bottom: 14px; }
-      .project-card .stack span { font-size: 0.65rem; padding: 3px 10px; }
-      .project-card .status { font-size: 0.7rem; margin-bottom: 14px; }
-      .project-card .links a { font-size: 0.75rem; padding: 7px 14px; }
 
-      /* Skills — 2 columns on mobile */
+      /* Skills */
       .skills-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .skill-item { padding: 14px 16px; gap: 10px; border-radius: 10px; }
+      .skill-item { padding: 14px 16px; gap: 10px; }
       .skill-item .icon { font-size: 1.15rem; }
       .skill-item .text { font-size: 0.8rem; }
 
       /* Vision */
-      .vision-content p { font-size: 0.98rem; line-height: 1.7; }
-      .vision-content .highlight { padding: 1px 8px; }
+      .vision-content p { font-size: 0.98rem; }
 
-      /* Contact — single column */
+      /* Contact */
       .contact-grid { grid-template-columns: 1fr; gap: 14px; }
-      .contact-card { padding: 20px; gap: 14px; border-radius: 10px; }
-      .contact-card .icon {
-        width: 44px; height: 44px;
-        font-size: 1.3rem;
-        border-radius: 10px;
-      }
-      .contact-card .label { font-size: 0.85rem; }
-      .contact-card .value { font-size: 0.78rem; }
+      .contact-card { padding: 20px; gap: 14px; }
+      .contact-card .icon { width: 44px; height: 44px; font-size: 1.3rem; }
 
-      /* Footer — stack */
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 28px; }
-      .footer-brand { font-size: 1.2rem; }
-      .footer-tagline { font-size: 0.85rem; }
-      .footer-col h4 { font-size: 0.85rem; margin-bottom: 12px; }
-      .footer-col a { font-size: 0.85rem; }
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
       footer { padding: 44px 0 24px; }
-      .footer-bottom { font-size: 0.78rem; padding-top: 20px; }
-
-      /* Reduce orbs on mobile */
-      .orb-1, .orb-2, .orb-3 { filter: blur(60px); opacity: 0.35; }
-      .orb-1 { width: 300px; height: 300px; }
-      .orb-2 { width: 260px; height: 260px; }
-      .orb-3 { width: 220px; height: 220px; }
     }
 
-    /* Small phones — 480px */
+    /* ============================================================
+       MOBILE HERO STYLES (only visible when .mobile-hero is displayed)
+       ============================================================ */
+    .mobile-hero {
+      padding: 90px 0 30px;
+      background: linear-gradient(180deg, #EEF3FB 0%, #F8FAFE 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .mobile-hero::before {
+      content: '';
+      position: absolute;
+      top: 30%; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(40, 120, 229, 0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .mobile-hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .mobile-hero-eyebrow {
+      display: block;
+      text-align: center;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bright);
+      font-weight: 700;
+      padding: 7px 14px;
+      background: rgba(40, 120, 229, 0.1);
+      border-radius: 20px;
+      margin: 0 auto 18px;
+      width: fit-content;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(40, 120, 229, 0.3); }
+      50% { box-shadow: 0 0 18px 3px rgba(40, 120, 229, 0.18); }
+    }
+    .mobile-hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+    .mobile-hero-title .accent {
+      display: block;
+      color: var(--royal);
+      font-size: 2.8rem;
+      margin-top: 2px;
+    }
+    .mobile-hero-tagline {
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: 600;
+      text-align: center;
+      margin: 14px 0 14px;
+      line-height: 1.4;
+      padding: 0 10px;
+    }
+    .mobile-hero-desc {
+      font-size: 0.88rem;
+      color: var(--body);
+      text-align: center;
+      line-height: 1.65;
+      margin-bottom: 22px;
+      padding: 0 6px;
+    }
+    .mobile-hero-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+    .mobile-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid transparent;
+      width: 100%;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+    }
+    .mobile-btn-primary {
+      background: var(--royal);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(6, 71, 196, 0.3);
+    }
+    .mobile-btn-primary:active { transform: scale(0.96); }
+    .mobile-btn-outline {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    .mobile-btn-outline:active { transform: scale(0.96); background: var(--light); }
+
+    /* Mobile Photo Section */
+    .mobile-photo-section {
+      position: relative;
+      margin: 10px 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 380px;
+    }
+    .mobile-photo-bg {
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 120, 229, 0.15) 0%, transparent 65%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .mobile-photo {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      filter: drop-shadow(0 20px 35px rgba(16, 46, 105, 0.35));
+      animation: photoFloatMobile 5s ease-in-out infinite;
+    }
+    @keyframes photoFloatMobile {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Floating Icon Cards */
+    .float-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px 12px;
+      box-shadow: 0 10px 30px rgba(16, 46, 105, 0.1);
+      z-index: 3;
+      width: 90px;
+      text-align: center;
+      animation: floatCard 4s ease-in-out infinite;
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .float-card-left {
+      left: 0;
+      top: 38%;
+      animation-delay: 0s;
+    }
+    .float-card-right {
+      right: 0;
+      top: 50%;
+      animation-delay: -2s;
+    }
+    .float-card-icon {
+      width: 34px; height: 34px;
+      margin: 0 auto 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(6, 71, 196, 0.08);
+      border-radius: 8px;
+    }
+    .float-card-icon svg { width: 18px; height: 18px; }
+    .float-card-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+    }
+    .float-card-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--bright);
+      margin: 8px auto 0;
+      box-shadow: 0 0 8px var(--bright);
+    }
+
+    /* Sparkle dots around photo */
+    .sparkle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--bright);
+      box-shadow: 0 0 10px var(--bright);
+      animation: sparklePulse 3s ease-in-out infinite;
+    }
+    @keyframes sparklePulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.4); }
+    }
+    .sparkle-1 { width: 8px; height: 8px; top: 12%; left: 12%; animation-delay: 0s; }
+    .sparkle-2 { width: 6px; height: 6px; top: 22%; right: 15%; animation-delay: 0.5s; }
+    .sparkle-3 { width: 5px; height: 5px; bottom: 25%; left: 8%; animation-delay: 1s; }
+    .sparkle-4 { width: 7px; height: 7px; bottom: 15%; right: 10%; animation-delay: 1.5s; }
+    .sparkle-5 { width: 4px; height: 4px; top: 50%; right: 5%; animation-delay: 2s; }
+    .sparkle-6 { width: 5px; height: 5px; bottom: 40%; left: 5%; animation-delay: 2.5s; }
+
+    /* Bottom Features Row */
+    .mobile-features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 16px 8px;
+      box-shadow: 0 10px 30px rgba(16, 46, 105, 0.08);
+      margin-top: 10px;
+      position: relative;
+      z-index: 4;
+    }
+    .mobile-feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      position: relative;
+    }
+    .mobile-feature:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -4px; top: 10%;
+      height: 80%;
+      width: 1px;
+      background: rgba(16, 46, 105, 0.08);
+    }
+    .mobile-feature-icon {
+      width: 40px; height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(6, 71, 196, 0.08);
+      border-radius: 10px;
+    }
+    .mobile-feature-icon svg { width: 20px; height: 20px; }
+    .mobile-feature-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .mobile-feature-sub {
+      font-size: 0.6rem;
+      color: var(--body);
+      line-height: 1.2;
+    }
+
+    /* ============================================================
+       TABLET (769px - 1024px) — DESKTOP LAYOUT with adjustments
+       ============================================================ */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero-grid { gap: 20px; }
+      .hero-photo-wrap img { max-width: 600px; }
+      .hero-photo-wrap { margin-top: -80px; }
+      .hero-text { padding-top: 60px; }
+      .about-grid { gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Small phones */
     @media (max-width: 480px) {
-      .container { padding: 0 14px; }
-      section { padding: 50px 0; }
-
-      .hero-photo-wrap img { max-width: 280px; }
-      .hero-title { font-size: 1.7rem; }
-      .hero-tagline { font-size: 0.88rem; }
-      .hero-desc { font-size: 0.85rem; }
-      .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.1em; }
-
-      .btn { padding: 11px 18px; font-size: 0.78rem; }
-
-      .section-title { font-size: 1.4rem; }
-      .section-desc { font-size: 0.88rem; }
-
-      /* Skills single column on very small phones */
-      .skills-grid { grid-template-columns: 1fr; }
-
-      .about-stat .num { font-size: 1.2rem; }
-      .about-stat .label { font-size: 0.72rem; }
-
-      .project-art { height: 110px; }
-      .project-art svg { width: 60px; height: 60px; }
-      .project-body { padding: 16px; }
-      .project-card h3 { font-size: 0.98rem; }
-      .project-card .desc { font-size: 0.8rem; }
-
-      .contact-card { padding: 16px; }
-      .contact-card .icon { width: 40px; height: 40px; font-size: 1.15rem; }
-      .contact-card .label { font-size: 0.8rem; }
-      .contact-card .value { font-size: 0.72rem; }
-
-      .nav-links a { font-size: 0.88rem; padding: 12px 14px; }
-      .brand { font-size: 1rem; }
-
-      .footer-brand { font-size: 1.1rem; }
-      .footer-tagline { font-size: 0.8rem; }
+      .mobile-hero-title { font-size: 2.1rem; }
+      .mobile-hero-title .accent { font-size: 2.4rem; }
+      .mobile-hero-tagline { font-size: 0.92rem; }
+      .mobile-hero-desc { font-size: 0.82rem; }
+      .mobile-photo { max-width: 240px; }
+      .mobile-photo-section { min-height: 340px; }
+      .float-card { width: 80px; padding: 12px 10px; }
+      .float-card-title { font-size: 0.62rem; }
+      .mobile-features { padding: 14px 6px; gap: 4px; }
+      .mobile-feature-icon { width: 36px; height: 36px; }
+      .mobile-feature-icon svg { width: 18px; height: 18px; }
+      .mobile-feature-title { font-size: 0.66rem; }
+      .mobile-feature-sub { font-size: 0.55rem; }
     }
 
-    /* Extra small — 360px */
     @media (max-width: 360px) {
-      .hero-photo-wrap img { max-width: 240px; }
-      .hero-title { font-size: 1.5rem; }
-      .hero-tagline { font-size: 0.82rem; }
-      .hero-desc { font-size: 0.8rem; }
-      .section-title { font-size: 1.3rem; }
-      .btn { font-size: 0.74rem; padding: 10px 16px; }
+      .mobile-hero-title { font-size: 1.85rem; }
+      .mobile-hero-title .accent { font-size: 2.15rem; }
+      .mobile-photo { max-width: 210px; }
+      .float-card { width: 72px; padding: 10px 8px; }
+      .float-card-title { font-size: 0.58rem; }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -924,18 +963,18 @@
 </head>
 <body>
 
-  <!-- ==================== CUSTOM CURSOR ==================== -->
+  <!-- CURSOR (desktop only) -->
   <div class="cursor-glow" id="cursorGlow"></div>
   <div class="cursor-dot" id="cursorDot"></div>
 
-  <!-- ==================== BACKGROUND LIGHTS & ORBS ==================== -->
+  <!-- BACKGROUND LIGHTS -->
   <div class="bg-lights">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
   </div>
 
-  <!-- ==================== FLOATING PARTICLES ==================== -->
+  <!-- FLOATING PARTICLES -->
   <div class="particles" id="particles"></div>
 
   <!-- ==================== NAVIGATION ==================== -->
@@ -953,8 +992,10 @@
     </div>
   </nav>
 
-  <!-- ==================== HERO ==================== -->
+  <!-- ==================== HOME ==================== -->
   <section id="home">
+
+    <!-- === DESKTOP HERO (hidden on mobile) === -->
     <div class="container hero-grid">
       <div class="hero-text reveal">
         <div class="hero-eyebrow">INDEPENDENT BUILDER • CYBERSECURITY ENTHUSIAST</div>
@@ -970,6 +1011,130 @@
       </div>
       <div class="hero-photo-wrap reveal" id="photoWrap">
         <img src="Mayuu.jpg" alt="Mayur Pisal" loading="eager" id="heroPhoto" />
+      </div>
+    </div>
+
+    <!-- === MOBILE HERO (hidden on desktop, shown on mobile) === -->
+    <div class="mobile-hero">
+      <div class="mobile-hero-inner">
+        <div class="mobile-hero-eyebrow">INDEPENDENT BUILDER · CYBERSECURITY ENTHUSIAST</div>
+
+        <h1 class="mobile-hero-title">
+          HI, I'M
+          <span class="accent">MAYUR PISAL</span>
+        </h1>
+
+        <div class="mobile-hero-tagline">
+          Building Technology. Exploring Security.<br>Creating What's Next.
+        </div>
+
+        <p class="mobile-hero-desc">
+          I'm a student and independent builder exploring cybersecurity, software development, Linux, and cloud technology through practical projects.
+        </p>
+
+        <div class="mobile-hero-btns">
+          <a href="#projects" class="mobile-btn mobile-btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            </svg>
+            EXPLORE MY PROJECTS
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto;">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#contact" class="mobile-btn mobile-btn-outline">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            CONTACT ME
+          </a>
+        </div>
+
+        <!-- Photo with floating cards -->
+        <div class="mobile-photo-section">
+          <div class="mobile-photo-bg"></div>
+
+          <!-- Sparkle dots -->
+          <span class="sparkle sparkle-1"></span>
+          <span class="sparkle sparkle-2"></span>
+          <span class="sparkle sparkle-3"></span>
+          <span class="sparkle sparkle-4"></span>
+          <span class="sparkle sparkle-5"></span>
+          <span class="sparkle sparkle-6"></span>
+
+          <!-- Left floating card - Code -->
+          <div class="float-card float-card-left">
+            <div class="float-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0647C4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <div class="float-card-title">Code<br>Build<br>Learn<br>Repeat</div>
+            <div class="float-card-dot"></div>
+          </div>
+
+          <!-- Right floating card - Security -->
+          <div class="float-card float-card-right">
+            <div class="float-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0647C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <div class="float-card-title">Security<br>Privacy<br>Innovation</div>
+            <div class="float-card-dot"></div>
+          </div>
+
+          <!-- Main photo -->
+          <img src="Mayuu.jpg" alt="Mayur Pisal" class="mobile-photo" loading="eager" />
+        </div>
+
+        <!-- Bottom features -->
+        <div class="mobile-features">
+          <div class="mobile-feature">
+            <div class="mobile-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0647C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="12" x="3" y="4" rx="2"/>
+                <path d="M2 20h20"/>
+              </svg>
+            </div>
+            <div class="mobile-feature-title">Projects</div>
+            <div class="mobile-feature-sub">Real World</div>
+          </div>
+          <div class="mobile-feature">
+            <div class="mobile-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0647C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+              </svg>
+            </div>
+            <div class="mobile-feature-title">Cybersecurity</div>
+            <div class="mobile-feature-sub">Learn &amp; Practice</div>
+          </div>
+          <div class="mobile-feature">
+            <div class="mobile-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0647C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+              </svg>
+            </div>
+            <div class="mobile-feature-title">Cloud &amp; Linux</div>
+            <div class="mobile-feature-sub">Explore</div>
+          </div>
+          <div class="mobile-feature">
+            <div class="mobile-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0647C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <div class="mobile-feature-title">Continuous</div>
+            <div class="mobile-feature-sub">Growth</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1024,9 +1189,7 @@
         <h2 class="section-title">MY PROJECTS</h2>
         <p class="section-desc" style="margin-bottom: 48px;">Experiments, ideas, and projects from my journey into technology.</p>
       </div>
-      <div class="project-grid" id="projectGrid">
-        <!-- Rendered by JavaScript -->
-      </div>
+      <div class="project-grid" id="projectGrid"></div>
     </div>
   </section>
 
@@ -1073,9 +1236,7 @@
         <h2 class="section-title">LET'S CONNECT</h2>
         <p class="section-desc" style="margin-bottom: 48px;">Have an interesting idea, project, or opportunity? Find me online.</p>
       </div>
-      <div class="contact-grid" id="contactGrid">
-        <!-- Rendered by JavaScript -->
-      </div>
+      <div class="contact-grid" id="contactGrid"></div>
     </div>
   </section>
 
@@ -1097,9 +1258,7 @@
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <div id="footerSocial">
-            <!-- Rendered by JavaScript -->
-          </div>
+          <div id="footerSocial"></div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1110,73 +1269,30 @@
 
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
-    // ============================================================
-    // CONFIGURATION
-    // ============================================================
-
     const CONFIG = {
       email: "mayou7496@gmail.com",
       instagramUrl: "https://instagram.com/mayur_9903_",
       phone: "9903256006",
-
       projects: [
-        {
-          name: "Photography Portfolio",
-          description: "A stunning visual portfolio website showcasing photography work with a clean, modern gallery layout.",
-          stack: ["HTML", "CSS", "JavaScript"],
-          status: "Live",
-          liveDemoUrl: "https://mayuu-p.github.io/dishant/",
-          githubUrl: "",
-          art: "camera"
-        },
-        {
-          name: "Medical Store",
-          description: "A pharmacy management web application for handling medicines, inventory, and customer billing.",
-          stack: ["HTML", "CSS", "JavaScript"],
-          status: "Live",
-          liveDemoUrl: "https://mayuu-p.github.io/Medical/",
-          githubUrl: "",
-          art: "medical"
-        },
-        {
-          name: "Dairy Management",
-          description: "A complete dairy operations system to manage milk production, inventory, and daily records.",
-          stack: ["HTML", "CSS", "JavaScript"],
-          status: "Live",
-          liveDemoUrl: "https://mayuu-p.github.io/Mayuu-9408/",
-          githubUrl: "",
-          art: "dairy"
-        },
-        {
-          name: "Trading Journal",
-          description: "A personal trading journal to track trades, analyze performance, and improve decision-making.",
-          stack: ["HTML", "CSS", "JavaScript"],
-          status: "Live",
-          liveDemoUrl: "https://mayuu-p.github.io/Trading-Journal-/",
-          githubUrl: "",
-          art: "chart"
-        }
+        { name: "Photography Portfolio", description: "A stunning visual portfolio website showcasing photography work with a clean, modern gallery layout.", stack: ["HTML", "CSS", "JavaScript"], status: "Live", liveDemoUrl: "https://mayuu-p.github.io/dishant/", githubUrl: "", art: "camera" },
+        { name: "Medical Store", description: "A pharmacy management web application for handling medicines, inventory, and customer billing.", stack: ["HTML", "CSS", "JavaScript"], status: "Live", liveDemoUrl: "https://mayuu-p.github.io/Medical/", githubUrl: "", art: "medical" },
+        { name: "Dairy Management", description: "A complete dairy operations system to manage milk production, inventory, and daily records.", stack: ["HTML", "CSS", "JavaScript"], status: "Live", liveDemoUrl: "https://mayuu-p.github.io/Mayuu-9408/", githubUrl: "", art: "dairy" },
+        { name: "Trading Journal", description: "A personal trading journal to track trades, analyze performance, and improve decision-making.", stack: ["HTML", "CSS", "JavaScript"], status: "Live", liveDemoUrl: "https://mayuu-p.github.io/Trading-Journal-/", githubUrl: "", art: "chart" }
       ]
     };
 
-    // ============================================================
-    // CUSTOM CURSOR GLOW (desktop only)
-    // ============================================================
-
+    // CURSOR
     const cursorGlow = document.getElementById('cursorGlow');
     const cursorDot = document.getElementById('cursorDot');
-    let mouseX = 0, mouseY = 0;
-    let glowX = 0, glowY = 0;
+    let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
     const isTouchDevice = window.matchMedia('(hover: none)').matches || window.innerWidth < 768;
 
     if (!isTouchDevice && cursorGlow && cursorDot) {
       document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        mouseX = e.clientX; mouseY = e.clientY;
         cursorDot.style.left = mouseX + 'px';
         cursorDot.style.top = mouseY + 'px';
       });
-
       function animateGlow() {
         glowX += (mouseX - glowX) * 0.08;
         glowY += (mouseY - glowY) * 0.08;
@@ -1185,21 +1301,16 @@
         requestAnimationFrame(animateGlow);
       }
       animateGlow();
-
       document.querySelectorAll('a, button, .project-card, .skill-item, .contact-card, .about-stat').forEach(el => {
         el.addEventListener('mouseenter', () => cursorDot.classList.add('hovering'));
         el.addEventListener('mouseleave', () => cursorDot.classList.remove('hovering'));
       });
     }
 
-    // ============================================================
-    // FLOATING PARTICLES — fewer on mobile
-    // ============================================================
-
+    // PARTICLES
     const particlesContainer = document.getElementById('particles');
     function createParticles() {
-      const isMobile = window.innerWidth < 768;
-      const count = isMobile ? 12 : 35;
+      const count = window.innerWidth < 768 ? 12 : 35;
       particlesContainer.innerHTML = '';
       for (let i = 0; i < count; i++) {
         const p = document.createElement('div');
@@ -1214,10 +1325,7 @@
     }
     createParticles();
 
-    // ============================================================
-    // 3D PHOTO TILT — desktop only
-    // ============================================================
-
+    // 3D PHOTO TILT (desktop only)
     const photoWrap = document.getElementById('photoWrap');
     const heroPhoto = document.getElementById('heroPhoto');
 
@@ -1228,262 +1336,113 @@
         const centerY = rect.top + rect.height / 2;
         const deltaX = (e.clientX - centerX) / rect.width;
         const deltaY = (e.clientY - centerY) / rect.height;
-
-        const rotateY = deltaX * 15;
-        const rotateX = -deltaY * 15;
-
-        heroPhoto.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        heroPhoto.style.transform = `perspective(1500px) rotateX(${-deltaY * 15}deg) rotateY(${deltaX * 15}deg) scale(1.02)`;
         heroPhoto.style.transition = 'transform 0.1s ease-out';
       });
-
       photoWrap.addEventListener('mouseleave', () => {
         heroPhoto.style.transform = 'perspective(1500px) rotateX(0) rotateY(0) scale(1)';
         heroPhoto.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
       });
-
-      heroPhoto.addEventListener('click', () => {
-        heroPhoto.style.transition = 'transform 0.15s';
-        heroPhoto.style.transform = 'perspective(1500px) scale(1.1)';
-        setTimeout(() => {
-          heroPhoto.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-          heroPhoto.style.transform = 'perspective(1500px) scale(1)';
-        }, 150);
-      });
     }
 
-    // ============================================================
     // SCROLL REVEAL
-    // ============================================================
-
-    const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // ============================================================
-    // NAVBAR SCROLL EFFECT
-    // ============================================================
-
+    // NAVBAR SCROLL
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // ============================================================
-    // ACTIVE NAV LINK ON SCROLL
-    // ============================================================
-
+    // ACTIVE NAV
     const sections = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('.nav-links a');
-
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          navAnchors.forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-          });
+          navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
         }
       });
     }, { threshold: 0.4, rootMargin: '-80px 0px -40% 0px' });
-
     sections.forEach(s => navObserver.observe(s));
 
-    // ============================================================
     // SMOOTH SCROLL
-    // ============================================================
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         this.style.transform = 'scale(0.95)';
         setTimeout(() => this.style.transform = '', 150);
       });
     });
 
-    // ============================================================
-    // PROJECT RENDERING
-    // ============================================================
-
+    // PROJECT ART
     function getProjectArt(type) {
       const artMap = {
-        camera: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-          <rect x="15" y="25" width="50" height="35" rx="6" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.95"/>
-          <circle cx="40" cy="42" r="10" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.95"/>
-          <circle cx="40" cy="42" r="4" fill="#FFFFFF" opacity="0.9"/>
-          <rect x="28" y="18" width="24" height="10" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.9"/>
-          <circle cx="58" cy="32" r="2" fill="#FFFFFF" opacity="0.8"/>
-        </svg>`,
-        medical: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-          <rect x="30" y="15" width="20" height="50" rx="4" fill="#FFFFFF" opacity="0.95"/>
-          <rect x="15" y="30" width="50" height="20" rx="4" fill="#FFFFFF" opacity="0.95"/>
-          <circle cx="40" cy="40" r="30" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
-        </svg>`,
-        dairy: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-          <path d="M40 12 C 40 12, 18 35, 18 50 C 18 62, 28 70, 40 70 C 52 70, 62 62, 62 50 C 62 35, 40 12, 40 12 Z" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.95"/>
-          <path d="M30 48 Q 40 42, 50 48" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.8"/>
-          <circle cx="40" cy="55" r="3" fill="#FFFFFF" opacity="0.9"/>
-        </svg>`,
-        chart: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 60 L30 42 L45 52 L60 28 L72 38" stroke="#FFFFFF" stroke-width="3" fill="none" opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="30" cy="42" r="3.5" fill="#FFFFFF" opacity="0.9"/>
-          <circle cx="45" cy="52" r="3.5" fill="#FFFFFF" opacity="0.9"/>
-          <circle cx="60" cy="28" r="3.5" fill="#FFFFFF" opacity="0.9"/>
-          <path d="M15 70 L72 70" stroke="#FFFFFF" stroke-width="2" opacity="0.5"/>
-          <path d="M15 15 L15 70" stroke="#FFFFFF" stroke-width="2" opacity="0.5"/>
-        </svg>`
+        camera: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="25" width="50" height="35" rx="6" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.95"/><circle cx="40" cy="42" r="10" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.95"/><circle cx="40" cy="42" r="4" fill="#FFFFFF" opacity="0.9"/><rect x="28" y="18" width="24" height="10" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.9"/></svg>`,
+        medical: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="15" width="20" height="50" rx="4" fill="#FFFFFF" opacity="0.95"/><rect x="15" y="30" width="50" height="20" rx="4" fill="#FFFFFF" opacity="0.95"/></svg>`,
+        dairy: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 12 C 40 12, 18 35, 18 50 C 18 62, 28 70, 40 70 C 52 70, 62 62, 62 50 C 62 35, 40 12, 40 12 Z" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.95"/><path d="M30 48 Q 40 42, 50 48" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.8"/></svg>`,
+        chart: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M15 60 L30 42 L45 52 L60 28 L72 38" stroke="#FFFFFF" stroke-width="3" fill="none" opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 70 L72 70" stroke="#FFFFFF" stroke-width="2" opacity="0.5"/><path d="M15 15 L15 70" stroke="#FFFFFF" stroke-width="2" opacity="0.5"/></svg>`
       };
       return artMap[type] || artMap.chart;
     }
 
+    // RENDER PROJECTS
     const projectGrid = document.getElementById('projectGrid');
-
     function renderProjects() {
-      projectGrid.innerHTML = CONFIG.projects.map((p, index) => {
-        const githubBtn = p.githubUrl
-          ? `<a href="${p.githubUrl}" target="_blank" rel="noopener">GitHub</a>`
-          : '';
-        const demoBtn = p.liveDemoUrl
-          ? `<a href="${p.liveDemoUrl}" target="_blank" rel="noopener">Live Demo</a>`
-          : '';
-
-        return `
-          <div class="project-card reveal" style="transition-delay: ${index * 0.1}s">
-            <div class="project-art">${getProjectArt(p.art)}</div>
-            <div class="project-body">
-              <h3>${p.name}</h3>
-              <p class="desc">${p.description}</p>
-              <div class="stack">${p.stack.map(s => `<span>${s}</span>`).join('')}</div>
-              <div class="status">Status: ${p.status}</div>
-              <div class="links">
-                ${githubBtn}
-                ${demoBtn}
-              </div>
-            </div>
-          </div>
-        `;
+      projectGrid.innerHTML = CONFIG.projects.map((p, i) => {
+        const githubBtn = p.githubUrl ? `<a href="${p.githubUrl}" target="_blank" rel="noopener">GitHub</a>` : '';
+        const demoBtn = p.liveDemoUrl ? `<a href="${p.liveDemoUrl}" target="_blank" rel="noopener">Live Demo</a>` : '';
+        return `<div class="project-card reveal" style="transition-delay: ${i * 0.1}s"><div class="project-art">${getProjectArt(p.art)}</div><div class="project-body"><h3>${p.name}</h3><p class="desc">${p.description}</p><div class="stack">${p.stack.map(s => `<span>${s}</span>`).join('')}</div><div class="status">Status: ${p.status}</div><div class="links">${githubBtn}${demoBtn}</div></div></div>`;
       }).join('');
-
       document.querySelectorAll('.project-card.reveal').forEach(el => revealObserver.observe(el));
     }
-
     renderProjects();
 
-    // ============================================================
-    // CONTACT RENDERING
-    // ============================================================
-
+    // RENDER CONTACTS
     const contactGrid = document.getElementById('contactGrid');
     const footerSocial = document.getElementById('footerSocial');
-
     function renderContacts() {
       const contacts = [
         { icon: '📧', label: 'Email', value: CONFIG.email, href: `mailto:${CONFIG.email}` },
         { icon: '📸', label: 'Instagram', value: '@mayur_9903_', href: CONFIG.instagramUrl },
         { icon: '📱', label: 'Mobile', value: CONFIG.phone, href: `tel:${CONFIG.phone}` }
       ];
-
-      contactGrid.innerHTML = contacts.map((c, i) => `
-        <a href="${c.href}" class="contact-card reveal" style="transition-delay: ${i * 0.1}s" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
-          <span class="icon">${c.icon}</span>
-          <div>
-            <div class="label">${c.label}</div>
-            <div class="value">${c.value}</div>
-          </div>
-        </a>
-      `).join('');
-
-      footerSocial.innerHTML = contacts.map(c => 
-        `<a href="${c.href}" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>${c.icon} ${c.label}</a>`
-      ).join('');
-
+      contactGrid.innerHTML = contacts.map((c, i) => `<a href="${c.href}" class="contact-card reveal" style="transition-delay: ${i * 0.1}s" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}><span class="icon">${c.icon}</span><div><div class="label">${c.label}</div><div class="value">${c.value}</div></div></a>`).join('');
+      footerSocial.innerHTML = contacts.map(c => `<a href="${c.href}" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>${c.icon} ${c.label}</a>`).join('');
       document.querySelectorAll('.contact-card.reveal').forEach(el => revealObserver.observe(el));
     }
-
     renderContacts();
 
-    // ============================================================
-    // HAMBURGER MENU
-    // ============================================================
-
+    // HAMBURGER
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    // ============================================================
-    // FOOTER YEAR
-    // ============================================================
-
+    // YEAR
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ============================================================
-    // ESC TO CLOSE MOBILE MENU
-    // ============================================================
-
+    // ESC
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') navLinks.classList.remove('open');
     });
 
-    // ============================================================
-    // RESIZE HANDLER FOR PARTICLES
-    // ============================================================
-
+    // RESIZE
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        createParticles();
-      }, 300);
-    });
-
-    // ============================================================
-    // BUTTON CLICK RIPPLE
-    // ============================================================
-
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.cssText = `
-          position: absolute;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.5);
-          width: ${size}px;
-          height: ${size}px;
-          left: ${e.clientX - rect.left - size/2}px;
-          top: ${e.clientY - rect.top - size/2}px;
-          transform: scale(0);
-          animation: rippleEffect 0.6s ease-out;
-          pointer-events: none;
-        `;
-        this.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600);
-      });
+      resizeTimeout = setTimeout(createParticles, 300);
     });
   </script>
-
-  <style>
-    @keyframes rippleEffect {
-      to { transform: scale(4); opacity: 0; }
-    }
-  </style>
 </body>
 </html>
