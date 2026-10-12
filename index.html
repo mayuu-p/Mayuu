@@ -100,15 +100,14 @@
 
     /* ==================== HERO ==================== */
     #home {
-      /* Nav bar ke thoda neeche se start */
       padding-top: 76px;
-      padding-bottom: 40px;
+      padding-bottom: 0;
       background: var(--white);
       position: relative;
       overflow: hidden;
       min-height: 100vh;
       display: flex;
-      align-items: flex-start; /* Content ko upar align karta hai */
+      align-items: flex-start;
     }
     /* Blue geometric outer background accents */
     #home::before {
@@ -125,28 +124,25 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      /* Text aur photo dono top se align */
       align-items: flex-start;
       position: relative;
       z-index: 1;
       width: 100%;
-      /* Content ko upar shift karne ke liye */
-      padding-top: 40px;
+      padding-top: 20px;
     }
     .hero-photo-wrap {
       position: relative;
       display: flex;
       justify-content: center;
-      /* Photo ko top pe align */
+      /* Photo ko aur upar shift karta hai */
       align-items: flex-start;
-      /* Photo ko aur upar shift */
-      margin-top: -30px;
+      margin-top: -100px;
     }
     /* Geometric blue shapes behind the photo */
     .hero-photo-wrap::before {
       content: '';
       position: absolute;
-      top: 30px;
+      top: 60px;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
@@ -159,7 +155,7 @@
     .hero-photo-wrap::after {
       content: '';
       position: absolute;
-      top: 50px;
+      top: 80px;
       left: 50%;
       transform: translateX(-50%);
       width: 110%;
@@ -173,18 +169,16 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      /* PHOTO AUR BADI - 680px */
-      max-width: 680px;
+      /* PHOTO AUR BADI - 720px */
+      max-width: 720px;
       height: auto;
       object-fit: contain;
-      object-position: top center;
       filter: drop-shadow(0 30px 50px rgba(16, 46, 105, 0.4));
     }
 
     .hero-text {
       padding-right: 20px;
-      /* Text ko top pe */
-      padding-top: 20px;
+      padding-top: 60px;
     }
     .hero-eyebrow {
       display: inline-block;
@@ -295,11 +289,11 @@
 
     /* ==================== PROJECTS ==================== */
     #projects { background: var(--light); }
-    /* 2x2 GRID - 2 upar, 2 neeche */
+    /* WAPAS PEHLE JAISA AUTO-FILL GRID (3-4 columns) */
     .project-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
     }
     .project-card {
       background: var(--white);
@@ -315,7 +309,7 @@
       box-shadow: 0 20px 40px rgba(16, 46, 105, 0.12);
     }
     .project-art {
-      height: 200px; /* Bada kiya */
+      height: 160px;
       background: linear-gradient(135deg, var(--royal), var(--bright));
       display: flex;
       align-items: center;
@@ -330,23 +324,23 @@
       width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
     }
-    .project-art svg { width: 110px; height: 110px; position: relative; z-index: 1; }
-    .project-body { padding: 32px; display: flex; flex-direction: column; flex: 1; }
-    .project-card h3 { font-size: 1.35rem; color: var(--navy); margin-bottom: 10px; font-weight: 700; }
-    .project-card .desc { color: var(--body); font-size: 0.95rem; flex: 1; margin-bottom: 20px; line-height: 1.7; }
-    .project-card .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .project-art svg { width: 90px; height: 90px; position: relative; z-index: 1; }
+    .project-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+    .project-card h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: 8px; font-weight: 700; }
+    .project-card .desc { color: var(--body); font-size: 0.9rem; flex: 1; margin-bottom: 18px; line-height: 1.6; }
+    .project-card .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
     .project-card .stack span {
-      font-size: 0.75rem;
-      padding: 5px 14px;
+      font-size: 0.7rem;
+      padding: 4px 12px;
       border-radius: 20px;
       background: rgba(6, 71, 196, 0.08);
       color: var(--royal);
       font-weight: 600;
     }
     .project-card .status {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--body);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -354,17 +348,16 @@
     }
     .project-card .status::before {
       content: '';
-      width: 8px; height: 8px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: #10B981;
-      box-shadow: 0 0 8px #10B981;
     }
-    .project-card .links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .project-card .links { display: flex; gap: 10px; flex-wrap: wrap; }
     .project-card .links a {
-      font-size: 0.85rem;
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: 1.5px solid var(--border);
+      font-size: 0.8rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
       color: var(--navy);
       font-weight: 600;
       transition: all var(--transition);
@@ -487,13 +480,10 @@
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 1024px) {
       .hero-grid { gap: 20px; }
-      .hero-photo-wrap img { max-width: 540px; }
+      .hero-photo-wrap img { max-width: 580px; }
+      .hero-photo-wrap { margin-top: -60px; }
       .about-grid { gap: 40px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 900px) {
-      /* Tablet pe project 2x2 se 1 column ho jaye */
-      .project-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
     }
     @media (max-width: 768px) {
       .nav-links {
@@ -514,16 +504,14 @@
       .hero-desc { margin: 0 auto 32px; }
       .btn-group { justify-content: center; }
       .hero-photo-wrap { order: -1; margin-top: 0; }
-      .hero-photo-wrap img { max-width: 380px; }
+      .hero-photo-wrap img { max-width: 400px; }
       .hero-photo-wrap::before, .hero-photo-wrap::after { top: 20px; }
       #home { min-height: auto; padding-bottom: 60px; padding-top: 100px; }
       #home::before { width: 100%; height: 45%; top: auto; bottom: 0; clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%); }
       .about-grid { grid-template-columns: 1fr; }
       section { padding: 70px 0; }
       .footer-grid { grid-template-columns: 1fr; }
-      /* Mobile pe projects 1 column */
       .project-grid { grid-template-columns: 1fr; }
-      .project-art { height: 160px; }
     }
     @media (max-width: 480px) {
       .hero-title { font-size: 2rem; }
