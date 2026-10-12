@@ -71,7 +71,7 @@
       66% { transform: translate(-30px, 50px) scale(0.95); }
     }
 
-    /* ==================== FLOATING BALLS — MORE VISIBLE ==================== */
+    /* ==================== FLOATING BALLS ==================== */
     .particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
     .particle {
       position: absolute;
@@ -206,12 +206,22 @@
 
     /* ==================== CONTACT ==================== */
     #contact { background: rgba(243, 246, 250, 0.7); backdrop-filter: blur(10px); }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .contact-card { background: var(--white); border-radius: 12px; padding: 28px; display: flex; align-items: center; gap: 18px; transition: all 0.4s; box-shadow: 0 4px 20px rgba(16, 46, 105, 0.05); border-bottom: 3px solid transparent; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+    .contact-card { background: var(--white); border-radius: 12px; padding: 32px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; transition: all 0.4s; box-shadow: 0 4px 20px rgba(16, 46, 105, 0.05); border-bottom: 3px solid transparent; text-align: center; }
     .contact-card:hover { transform: translateY(-6px) scale(1.03); border-bottom-color: var(--royal); box-shadow: 0 20px 40px rgba(6, 71, 196, 0.15); }
-    .contact-card .icon { font-size: 1.6rem; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: rgba(6, 71, 196, 0.08); border-radius: 12px; flex-shrink: 0; }
-    .contact-card .label { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .contact-card .value { font-size: 0.85rem; color: var(--body); word-break: break-all; }
+    .contact-card .icon {
+      font-size: 1.8rem;
+      width: 60px; height: 60px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(6, 71, 196, 0.08);
+      border-radius: 14px;
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+    .contact-card:hover .icon { background: var(--royal); transform: scale(1.08) rotate(-5deg); }
+    .contact-card:hover .icon svg { stroke: var(--white); }
+    .contact-card .icon svg { width: 28px; height: 28px; stroke: var(--royal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-card .label { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
 
     /* ==================== FOOTER (desktop) ==================== */
     footer { background: var(--navy); color: rgba(255,255,255,0.8); padding: 60px 0 30px; position: relative; z-index: 2; }
@@ -221,22 +231,12 @@
     .footer-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.7); max-width: 340px; line-height: 1.7; }
     .footer-col h4 { color: var(--white); font-size: 0.9rem; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* Footer navigate with icons */
     .footer-nav-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .footer-nav-list a {
-      display: flex; align-items: center; gap: 12px;
-      color: rgba(255,255,255,0.75); font-size: 0.9rem;
-      padding: 6px 0; transition: all 0.3s;
-    }
+    .footer-nav-list a { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.75); font-size: 0.9rem; padding: 6px 0; transition: all 0.3s; }
     .footer-nav-list a:hover { color: var(--white); transform: translateX(6px); }
-    .footer-nav-list a svg {
-      width: 18px; height: 18px;
-      stroke: var(--bright); fill: none;
-      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-      flex-shrink: 0;
-    }
+    .footer-nav-list a svg { width: 18px; height: 18px; stroke: var(--bright); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-    /* Big icons in footer */
+    /* Big icons in footer — now 3 only (Email, Instagram, Phone) */
     .footer-big-icons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
     .footer-big-icon {
       width: 62px; height: 62px;
@@ -266,12 +266,12 @@
       .mobile-only { display: block !important; }
 
       nav { background: rgba(255,255,255,0.98); }
-      /* Mobile 3-lines popup — chhota, right side */
+      /* Mobile 3-lines popup — chhota, right side, fully functional */
       .nav-links {
         display: none;
         position: absolute;
         top: 68px; right: 16px; left: auto;
-        width: 230px;
+        width: 240px;
         background: var(--white);
         flex-direction: column;
         padding: 10px;
@@ -285,14 +285,16 @@
       @keyframes popIn { from { opacity: 0; transform: translateY(-10px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
       .nav-links a {
         width: 100%;
-        padding: 11px 14px;
-        font-size: 0.9rem;
+        padding: 12px 14px;
+        font-size: 0.92rem;
         border-radius: 8px;
         text-align: left;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         position: relative;
+        color: var(--navy);
+        font-weight: 500;
       }
       .nav-links a svg {
         width: 18px; height: 18px;
@@ -300,10 +302,18 @@
         stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
         flex-shrink: 0;
       }
-      .nav-links a:hover, .nav-links a:active { background: var(--light); color: var(--royal); }
+      .nav-links a:active { background: var(--light); color: var(--royal); }
       .nav-links a.active { background: rgba(6, 71, 196, 0.1); color: var(--royal); font-weight: 600; }
       .nav-links a.active::after { display: none; }
-      .nav-cta { text-align: center; margin-top: 4px; padding: 11px 14px !important; background: var(--royal) !important; color: var(--white) !important; justify-content: center; }
+      .nav-cta {
+        margin-top: 6px;
+        padding: 12px 14px !important;
+        background: var(--royal) !important;
+        color: var(--white) !important;
+        justify-content: center;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+      }
       .nav-cta svg { stroke: var(--white) !important; }
       .hamburger { display: block; }
       .nav-inner { height: 68px; }
@@ -392,14 +402,26 @@
       .mobile-vision-title { font-size: 1.35rem; font-weight: 800; color: var(--white); margin-bottom: 12px; line-height: 1.2; position: relative; }
       .mobile-vision-text { font-size: 0.85rem; color: rgba(255,255,255,0.9); line-height: 1.7; position: relative; }
 
+      /* Mobile contact — only icons + names */
       .mobile-connect-sub { font-size: 0.85rem; color: var(--body); margin-bottom: 18px; }
-      .mobile-connect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-      .mobile-connect-card { background: var(--white); border-radius: 14px; padding: 16px 10px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; box-shadow: 0 4px 15px rgba(16, 46, 105, 0.06); }
+      .mobile-connect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .mobile-connect-card {
+        background: var(--white);
+        border-radius: 16px;
+        padding: 20px 10px;
+        display: flex; flex-direction: column; align-items: center; gap: 10px;
+        text-align: center; box-shadow: 0 4px 15px rgba(16, 46, 105, 0.06);
+        transition: all 0.3s;
+      }
       .mobile-connect-card:active { transform: scale(0.96); }
-      .mobile-connect-icon { width: 38px; height: 38px; border-radius: 10px; background: rgba(6, 71, 196, 0.08); display: flex; align-items: center; justify-content: center; }
-      .mobile-connect-icon svg { width: 20px; height: 20px; stroke: var(--royal); }
-      .mobile-connect-label { font-size: 0.72rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
-      .mobile-connect-value { font-size: 0.6rem; color: var(--body); word-break: break-all; line-height: 1.2; }
+      .mobile-connect-icon {
+        width: 48px; height: 48px; border-radius: 12px;
+        background: rgba(6, 71, 196, 0.08);
+        display: flex; align-items: center; justify-content: center;
+        transition: all 0.3s;
+      }
+      .mobile-connect-icon svg { width: 24px; height: 24px; stroke: var(--royal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .mobile-connect-label { font-size: 0.78rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
 
       .mobile-footer { background: var(--navy); padding: 28px 20px 20px; color: var(--white); text-align: left; }
       .mobile-footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; margin-bottom: 20px; }
@@ -443,8 +465,10 @@
       .mobile-section { padding: 32px 16px; }
       .mobile-section-title { font-size: 1.35rem; }
       .mobile-connect-grid { gap: 8px; }
-      .mobile-connect-card { padding: 12px 6px; }
-      .mobile-connect-value { font-size: 0.55rem; }
+      .mobile-connect-card { padding: 16px 8px; }
+      .mobile-connect-icon { width: 42px; height: 42px; }
+      .mobile-connect-icon svg { width: 22px; height: 22px; }
+      .mobile-connect-label { font-size: 0.72rem; }
     }
 
     @media (max-width: 360px) {
@@ -480,24 +504,25 @@
     <div class="container nav-inner">
       <a href="#home" class="brand">MAYUR <span>PISAL</span></a>
       <div class="nav-links" id="navLinks">
+        <!-- Desktop: no icons (pehle jaise) ; Mobile: icons -->
         <a href="#home" class="active" data-nav="home">
-          <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg>
+          <svg class="mobile-icon" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg>
           Home
         </a>
         <a href="#about" data-nav="about">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
+          <svg class="mobile-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
           About
         </a>
         <a href="#projects" data-nav="projects">
-          <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <svg class="mobile-icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
           Projects
         </a>
         <a href="#skills" data-nav="skills">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <svg class="mobile-icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           Skills
         </a>
         <a href="#contact" class="nav-cta" data-nav="contact">
-          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <svg class="mobile-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
           Let's Connect
         </a>
       </div>
@@ -603,7 +628,7 @@
     </div>
   </div>
 
-  <!-- PROJECTS desktop — GitHub icon top-right -->
+  <!-- PROJECTS desktop -->
   <section id="projects" class="desktop-only">
     <div class="container">
       <div class="projects-header">
@@ -682,7 +707,7 @@
     </div>
   </div>
 
-  <!-- CONTACT desktop -->
+  <!-- CONTACT desktop — only icons + names, no values -->
   <section id="contact" class="desktop-only">
     <div class="container">
       <div class="reveal">
@@ -690,35 +715,45 @@
         <h2 class="section-title">LET'S CONNECT</h2>
         <p class="section-desc" style="margin-bottom: 48px;">Have an interesting idea, project, or opportunity? Find me online.</p>
       </div>
-      <div class="contact-grid" id="contactGrid"></div>
+      <div class="contact-grid">
+        <a href="mailto:mayou7496@gmail.com" class="contact-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+          <div class="label">Email</div>
+        </a>
+        <a href="https://instagram.com/mayur_9903_" target="_blank" rel="noopener" class="contact-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+          <div class="label">Instagram</div>
+        </a>
+        <a href="tel:+919903256006" class="contact-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div class="label">Phone</div>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT mobile -->
+  <!-- CONTACT mobile — only icons + names -->
   <div class="mobile-only mobile-section" id="contact-mobile">
     <div class="mobile-section-label">05 · CONNECT</div>
     <div class="mobile-section-title">LET'S CONNECT</div>
     <p class="mobile-connect-sub">Share an idea, a project, or just say hi!</p>
     <div class="mobile-connect-grid">
       <a href="mailto:mayou7496@gmail.com" class="mobile-connect-card">
-        <div class="mobile-connect-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+        <div class="mobile-connect-icon"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
         <div class="mobile-connect-label">Email</div>
-        <div class="mobile-connect-value">mayou7496@gmail.com</div>
       </a>
       <a href="https://instagram.com/mayur_9903_" target="_blank" rel="noopener" class="mobile-connect-card">
-        <div class="mobile-connect-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+        <div class="mobile-connect-icon"><svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
         <div class="mobile-connect-label">Instagram</div>
-        <div class="mobile-connect-value">@mayur_9903_</div>
       </a>
       <a href="tel:+919903256006" class="mobile-connect-card">
-        <div class="mobile-connect-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <div class="mobile-connect-label">Mobile</div>
-        <div class="mobile-connect-value">+91 99032 56006</div>
+        <div class="mobile-connect-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="mobile-connect-label">Phone</div>
       </a>
     </div>
   </div>
 
-  <!-- FOOTER desktop -->
+  <!-- FOOTER desktop — only 3 icons (Email, Instagram, Phone) -->
   <footer class="desktop-only">
     <div class="container">
       <div class="footer-grid">
@@ -773,10 +808,6 @@
 
   <script>
     const CONFIG = {
-      email: "mayou7496@gmail.com",
-      instagramUrl: "https://instagram.com/mayur_9903_",
-      githubUrl: "https://github.com/mayuu-p",
-      phone: "9903256006",
       projects: [
         { name: "Photography Portfolio", description: "Modern portfolio website", stack: ["HTML", "CSS", "JavaScript"], status: "Live", liveDemoUrl: "https://mayuu-p.github.io/dishant/", githubUrl: "", art: "camera" },
         { name: "Medical Store", description: "Manage medicines & stock", stack: ["HTML", "CSS", "JavaScript"], status: "Live", liveDemoUrl: "https://mayuu-p.github.io/Medical/", githubUrl: "", art: "medical" },
@@ -785,7 +816,7 @@
       ]
     };
 
-    // CURSOR
+    // CURSOR (desktop + tablet only)
     const cursorGlow = document.getElementById('cursorGlow');
     const cursorDot = document.getElementById('cursorDot');
     let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
@@ -806,7 +837,7 @@
       });
     }
 
-    // BALLS — MANY and VISIBLE on all devices
+    // BALLS — MANY, continuously moving on all devices
     const particlesContainer = document.getElementById('particles');
     function createParticles() {
       const isMobile = window.innerWidth < 768;
@@ -856,7 +887,7 @@
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
 
-    // ACTIVE NAV — with mobile mapping
+    // ACTIVE NAV
     const sections = document.querySelectorAll('section[id], div[id$="-mobile"]');
     const navAnchors = document.querySelectorAll('.nav-links a');
     const navObserver = new IntersectionObserver((entries) => {
@@ -873,14 +904,14 @@
     }, { threshold: 0.25, rootMargin: '-80px 0px -40% 0px' });
     sections.forEach(s => navObserver.observe(s));
 
-    // HAMBURGER — click anywhere to close
+    // HAMBURGER — mobile 3-lines
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
       navLinks.classList.toggle('open');
     });
-    // Mobile menu links — full working
+    // All nav links working (desktop + mobile)
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', (e) => {
         e.preventDefault();
@@ -899,22 +930,6 @@
       if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
         navLinks.classList.remove('open');
       }
-    });
-    // Scroll pe band
-    window.addEventListener('scroll', () => {
-      if (navLinks.classList.contains('open')) navLinks.classList.remove('open');
-    });
-
-    // DESKTOP SMOOTH SCROLL
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        if (this.closest('.nav-links')) return; // handled above
-        const href = this.getAttribute('href');
-        if (href === '#' || href.length < 2) return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
     });
 
     // PROJECT ART
@@ -953,19 +968,6 @@
           <div class="mobile-project-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
         </a>
       `).join('');
-    }
-
-    // DESKTOP CONTACTS
-    const contactGrid = document.getElementById('contactGrid');
-    if (contactGrid) {
-      const contacts = [
-        { icon: '📧', label: 'Email', value: CONFIG.email, href: `mailto:${CONFIG.email}` },
-        { icon: '📸', label: 'Instagram', value: '@mayur_9903_', href: CONFIG.instagramUrl },
-        { icon: '🐙', label: 'GitHub', value: 'mayuu-p', href: CONFIG.githubUrl },
-        { icon: '📱', label: 'Mobile', value: CONFIG.phone, href: `tel:${CONFIG.phone}` }
-      ];
-      contactGrid.innerHTML = contacts.map((c, i) => `<a href="${c.href}" class="contact-card reveal" style="transition-delay: ${i * 0.1}s" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}><span class="icon">${c.icon}</span><div><div class="label">${c.label}</div><div class="value">${c.value}</div></div></a>`).join('');
-      document.querySelectorAll('.contact-card.reveal').forEach(el => revealObserver.observe(el));
     }
 
     // YEAR
