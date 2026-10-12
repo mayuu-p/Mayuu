@@ -66,11 +66,6 @@
       background: var(--bright);
       box-shadow: 0 0 25px rgba(40, 120, 229, 0.9);
     }
-    @media (max-width: 768px) {
-      body { cursor: auto; }
-      .cursor-glow, .cursor-dot { display: none; }
-      button, a { cursor: pointer; }
-    }
 
     /* ==================== BACKGROUND LIGHTS & ORBS ==================== */
     .bg-lights {
@@ -701,12 +696,11 @@
       color: rgba(255,255,255,0.6);
     }
 
-    /* ==================== RESPONSIVE ==================== */
-    @media (max-width: 1200px) {
-      .hero-photo-wrap img { max-width: 680px; }
-      .hero-photo-wrap { margin-top: -100px; }
-      .hero-text { padding-top: 80px; }
-    }
+    /* ============================================================
+       RESPONSIVE — MOBILE FIRST ADJUSTMENTS
+       ============================================================ */
+
+    /* Tablet — 1024px */
     @media (max-width: 1024px) {
       .hero-grid { gap: 20px; }
       .hero-photo-wrap img { max-width: 600px; }
@@ -715,41 +709,207 @@
       .about-grid { gap: 40px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* Large phones / small tablets — 768px */
     @media (max-width: 768px) {
+      /* Disable custom cursor on touch devices */
+      body { cursor: auto; }
+      .cursor-glow, .cursor-dot { display: none !important; }
+      button, a, .project-card, .skill-item, .contact-card, .about-stat { cursor: pointer; }
+
+      /* Navigation — mobile menu */
       .nav-links {
         display: none;
         position: absolute;
         top: 76px; left: 0; right: 0;
         background: var(--white);
         flex-direction: column;
-        padding: 20px;
+        padding: 16px;
         box-shadow: 0 10px 25px rgba(16, 46, 105, 0.1);
         gap: 4px;
+        border-radius: 0 0 16px 16px;
       }
       .nav-links.open { display: flex; }
-      .nav-links a { width: 100%; padding: 12px 16px; }
+      .nav-links a {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 0.95rem;
+        border-radius: 10px;
+      }
+      .nav-links a.active::after { display: none; }
+      .nav-cta {
+        text-align: center;
+        margin-top: 8px;
+      }
       .hamburger { display: block; }
-      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 20px; padding-top: 20px; }
-      .hero-text { padding-right: 0; padding-top: 0; }
-      .hero-desc { margin: 0 auto 32px; }
-      .btn-group { justify-content: center; }
-      .hero-photo-wrap { order: -1; margin-top: 0; }
-      .hero-photo-wrap img { max-width: 420px; }
-      #home { min-height: auto; padding-bottom: 60px; padding-top: 100px; }
-      .about-grid { grid-template-columns: 1fr; }
-      section { padding: 70px 0; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .project-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 480px) {
-      .hero-title { font-size: 2rem; }
-      .btn { width: 100%; justify-content: center; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: 1fr; }
-      .hero-photo-wrap img { max-width: 340px; }
-      .project-body { padding: 24px; }
+      .nav-inner { height: 68px; }
+      .brand { font-size: 1.1rem; }
+
+      /* Hero — stack vertically, photo first, smaller */
+      #home { padding-top: 90px; padding-bottom: 40px; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 24px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+      }
+      .hero-text { padding-right: 0; padding-top: 0; order: 2; }
+      .hero-photo-wrap {
+        order: 1;
+        margin-top: 0;
+        perspective: none;
+      }
+      .hero-photo-wrap img {
+        max-width: 340px;
+        margin: 0 auto;
+        animation: photoFloatMobile 4s ease-in-out infinite;
+      }
+      @keyframes photoFloatMobile {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+      .hero-eyebrow {
+        font-size: 0.62rem;
+        padding: 5px 12px;
+        margin-bottom: 16px;
+      }
+      .hero-title {
+        font-size: 1.9rem;
+        margin-bottom: 10px;
+      }
+      .hero-tagline {
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+      }
+      .hero-desc {
+        font-size: 0.9rem;
+        margin: 0 auto 24px;
+        line-height: 1.65;
+      }
+      .btn-group { justify-content: center; gap: 10px; }
+      .btn {
+        padding: 12px 20px;
+        font-size: 0.82rem;
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+
+      /* Sections — reduce padding */
+      section { padding: 60px 0; }
+      .container { padding: 0 18px; }
+      .section-label { font-size: 0.68rem; }
+      .section-title { font-size: 1.55rem; margin-bottom: 12px; }
+      .section-desc { font-size: 0.92rem; margin-bottom: 32px !important; }
+
+      /* About — stack, smaller stats */
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-content p { font-size: 0.94rem; line-height: 1.7; margin-bottom: 12px; }
+      .about-stats { gap: 12px; margin-top: 20px; }
+      .about-stat { padding: 18px; border-radius: 10px; }
+      .about-stat .num { font-size: 1.35rem; }
+      .about-stat .label { font-size: 0.78rem; }
+
+      /* Projects — single column, smaller cards */
+      .project-grid { grid-template-columns: 1fr; gap: 20px; }
+      .project-art { height: 130px; }
+      .project-art svg { width: 70px; height: 70px; }
+      .project-body { padding: 20px; }
+      .project-card h3 { font-size: 1.05rem; }
+      .project-card .desc { font-size: 0.85rem; margin-bottom: 14px; }
+      .project-card .stack span { font-size: 0.65rem; padding: 3px 10px; }
+      .project-card .status { font-size: 0.7rem; margin-bottom: 14px; }
+      .project-card .links a { font-size: 0.75rem; padding: 7px 14px; }
+
+      /* Skills — 2 columns on mobile */
+      .skills-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .skill-item { padding: 14px 16px; gap: 10px; border-radius: 10px; }
+      .skill-item .icon { font-size: 1.15rem; }
+      .skill-item .text { font-size: 0.8rem; }
+
+      /* Vision */
+      .vision-content p { font-size: 0.98rem; line-height: 1.7; }
+      .vision-content .highlight { padding: 1px 8px; }
+
+      /* Contact — single column */
+      .contact-grid { grid-template-columns: 1fr; gap: 14px; }
+      .contact-card { padding: 20px; gap: 14px; border-radius: 10px; }
+      .contact-card .icon {
+        width: 44px; height: 44px;
+        font-size: 1.3rem;
+        border-radius: 10px;
+      }
+      .contact-card .label { font-size: 0.85rem; }
+      .contact-card .value { font-size: 0.78rem; }
+
+      /* Footer — stack */
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 28px; }
+      .footer-brand { font-size: 1.2rem; }
+      .footer-tagline { font-size: 0.85rem; }
+      .footer-col h4 { font-size: 0.85rem; margin-bottom: 12px; }
+      .footer-col a { font-size: 0.85rem; }
+      footer { padding: 44px 0 24px; }
+      .footer-bottom { font-size: 0.78rem; padding-top: 20px; }
+
+      /* Reduce orbs on mobile */
+      .orb-1, .orb-2, .orb-3 { filter: blur(60px); opacity: 0.35; }
+      .orb-1 { width: 300px; height: 300px; }
+      .orb-2 { width: 260px; height: 260px; }
+      .orb-3 { width: 220px; height: 220px; }
     }
 
+    /* Small phones — 480px */
+    @media (max-width: 480px) {
+      .container { padding: 0 14px; }
+      section { padding: 50px 0; }
+
+      .hero-photo-wrap img { max-width: 280px; }
+      .hero-title { font-size: 1.7rem; }
+      .hero-tagline { font-size: 0.88rem; }
+      .hero-desc { font-size: 0.85rem; }
+      .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.1em; }
+
+      .btn { padding: 11px 18px; font-size: 0.78rem; }
+
+      .section-title { font-size: 1.4rem; }
+      .section-desc { font-size: 0.88rem; }
+
+      /* Skills single column on very small phones */
+      .skills-grid { grid-template-columns: 1fr; }
+
+      .about-stat .num { font-size: 1.2rem; }
+      .about-stat .label { font-size: 0.72rem; }
+
+      .project-art { height: 110px; }
+      .project-art svg { width: 60px; height: 60px; }
+      .project-body { padding: 16px; }
+      .project-card h3 { font-size: 0.98rem; }
+      .project-card .desc { font-size: 0.8rem; }
+
+      .contact-card { padding: 16px; }
+      .contact-card .icon { width: 40px; height: 40px; font-size: 1.15rem; }
+      .contact-card .label { font-size: 0.8rem; }
+      .contact-card .value { font-size: 0.72rem; }
+
+      .nav-links a { font-size: 0.88rem; padding: 12px 14px; }
+      .brand { font-size: 1rem; }
+
+      .footer-brand { font-size: 1.1rem; }
+      .footer-tagline { font-size: 0.8rem; }
+    }
+
+    /* Extra small — 360px */
+    @media (max-width: 360px) {
+      .hero-photo-wrap img { max-width: 240px; }
+      .hero-title { font-size: 1.5rem; }
+      .hero-tagline { font-size: 0.82rem; }
+      .hero-desc { font-size: 0.8rem; }
+      .section-title { font-size: 1.3rem; }
+      .btn { font-size: 0.74rem; padding: 10px 16px; }
+    }
+
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1000,43 +1160,46 @@
     };
 
     // ============================================================
-    // CUSTOM CURSOR GLOW
+    // CUSTOM CURSOR GLOW (desktop only)
     // ============================================================
 
     const cursorGlow = document.getElementById('cursorGlow');
     const cursorDot = document.getElementById('cursorDot');
     let mouseX = 0, mouseY = 0;
     let glowX = 0, glowY = 0;
+    const isTouchDevice = window.matchMedia('(hover: none)').matches || window.innerWidth < 768;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-    });
+    if (!isTouchDevice && cursorGlow && cursorDot) {
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.left = mouseX + 'px';
+        cursorDot.style.top = mouseY + 'px';
+      });
 
-    function animateGlow() {
-      glowX += (mouseX - glowX) * 0.08;
-      glowY += (mouseY - glowY) * 0.08;
-      cursorGlow.style.left = glowX + 'px';
-      cursorGlow.style.top = glowY + 'px';
-      requestAnimationFrame(animateGlow);
+      function animateGlow() {
+        glowX += (mouseX - glowX) * 0.08;
+        glowY += (mouseY - glowY) * 0.08;
+        cursorGlow.style.left = glowX + 'px';
+        cursorGlow.style.top = glowY + 'px';
+        requestAnimationFrame(animateGlow);
+      }
+      animateGlow();
+
+      document.querySelectorAll('a, button, .project-card, .skill-item, .contact-card, .about-stat').forEach(el => {
+        el.addEventListener('mouseenter', () => cursorDot.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => cursorDot.classList.remove('hovering'));
+      });
     }
-    animateGlow();
-
-    // Hover effect on interactive elements
-    document.querySelectorAll('a, button, .project-card, .skill-item, .contact-card, .about-stat').forEach(el => {
-      el.addEventListener('mouseenter', () => cursorDot.classList.add('hovering'));
-      el.addEventListener('mouseleave', () => cursorDot.classList.remove('hovering'));
-    });
 
     // ============================================================
-    // FLOATING PARTICLES
+    // FLOATING PARTICLES — fewer on mobile
     // ============================================================
 
     const particlesContainer = document.getElementById('particles');
     function createParticles() {
-      const count = window.innerWidth < 768 ? 15 : 35;
+      const isMobile = window.innerWidth < 768;
+      const count = isMobile ? 12 : 35;
       particlesContainer.innerHTML = '';
       for (let i = 0; i < count; i++) {
         const p = document.createElement('div');
@@ -1052,41 +1215,41 @@
     createParticles();
 
     // ============================================================
-    // 3D PHOTO TILT
+    // 3D PHOTO TILT — desktop only
     // ============================================================
 
     const photoWrap = document.getElementById('photoWrap');
     const heroPhoto = document.getElementById('heroPhoto');
 
-    document.addEventListener('mousemove', (e) => {
-      if (window.innerWidth < 768) return;
-      const rect = photoWrap.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const deltaX = (e.clientX - centerX) / rect.width;
-      const deltaY = (e.clientY - centerY) / rect.height;
-      
-      const rotateY = deltaX * 15;
-      const rotateX = -deltaY * 15;
-      
-      heroPhoto.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-      heroPhoto.style.transition = 'transform 0.1s ease-out';
-    });
+    if (!isTouchDevice && photoWrap && heroPhoto) {
+      document.addEventListener('mousemove', (e) => {
+        const rect = photoWrap.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const deltaX = (e.clientX - centerX) / rect.width;
+        const deltaY = (e.clientY - centerY) / rect.height;
 
-    photoWrap.addEventListener('mouseleave', () => {
-      heroPhoto.style.transform = 'perspective(1500px) rotateX(0) rotateY(0) scale(1)';
-      heroPhoto.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
-    });
+        const rotateY = deltaX * 15;
+        const rotateX = -deltaY * 15;
 
-    // Photo click bounce
-    heroPhoto.addEventListener('click', () => {
-      heroPhoto.style.transition = 'transform 0.15s';
-      heroPhoto.style.transform = 'perspective(1500px) scale(1.1)';
-      setTimeout(() => {
-        heroPhoto.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        heroPhoto.style.transform = 'perspective(1500px) scale(1)';
-      }, 150);
-    });
+        heroPhoto.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        heroPhoto.style.transition = 'transform 0.1s ease-out';
+      });
+
+      photoWrap.addEventListener('mouseleave', () => {
+        heroPhoto.style.transform = 'perspective(1500px) rotateX(0) rotateY(0) scale(1)';
+        heroPhoto.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      });
+
+      heroPhoto.addEventListener('click', () => {
+        heroPhoto.style.transition = 'transform 0.15s';
+        heroPhoto.style.transform = 'perspective(1500px) scale(1.1)';
+        setTimeout(() => {
+          heroPhoto.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          heroPhoto.style.transform = 'perspective(1500px) scale(1)';
+        }, 150);
+      });
+    }
 
     // ============================================================
     // SCROLL REVEAL
@@ -1146,7 +1309,6 @@
             block: 'start'
           });
         }
-        // Click animation
         this.style.transform = 'scale(0.95)';
         setTimeout(() => this.style.transform = '', 150);
       });
@@ -1214,8 +1376,7 @@
           </div>
         `;
       }).join('');
-      
-      // Re-observe newly created project cards
+
       document.querySelectorAll('.project-card.reveal').forEach(el => revealObserver.observe(el));
     }
 
@@ -1248,7 +1409,7 @@
       footerSocial.innerHTML = contacts.map(c => 
         `<a href="${c.href}" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>${c.icon} ${c.label}</a>`
       ).join('');
-      
+
       document.querySelectorAll('.contact-card.reveal').forEach(el => revealObserver.observe(el));
     }
 
@@ -1287,11 +1448,13 @@
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(createParticles, 300);
+      resizeTimeout = setTimeout(() => {
+        createParticles();
+      }, 300);
     });
 
     // ============================================================
-    // BUTTON CLICK RIPPLE (all buttons)
+    // BUTTON CLICK RIPPLE
     // ============================================================
 
     document.querySelectorAll('.btn').forEach(btn => {
@@ -1316,7 +1479,7 @@
       });
     });
   </script>
-  
+
   <style>
     @keyframes rippleEffect {
       to { transform: scale(4); opacity: 0; }
