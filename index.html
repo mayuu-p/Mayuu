@@ -100,7 +100,7 @@
 
     /* ==================== HERO ==================== */
     #home {
-      padding-top: 40px; /* Nav bar ke bilkul paas se start */
+      padding-top: 80px;
       padding-bottom: 0;
       background: var(--white);
       position: relative;
@@ -136,8 +136,8 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      /* PHOTO EKDUM UPAR SHIFT -320px */
-      margin-top: -320px;
+      /* PHOTO THODA NEECHE -120px */
+      margin-top: -120px;
     }
     /* Geometric blue shapes behind the photo */
     .hero-photo-wrap::before {
@@ -170,8 +170,8 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      /* PHOTO AUR BADI - 1050px */
-      max-width: 1050px;
+      /* PHOTO THODA CHOTI - 750px */
+      max-width: 750px;
       height: auto;
       filter: drop-shadow(0 30px 50px rgba(16, 46, 105, 0.4));
     }
@@ -179,7 +179,7 @@
     .hero-text {
       padding-right: 20px;
       /* TEXT PHOTO KE SAATH LEVEL */
-      padding-top: 260px;
+      padding-top: 100px;
     }
     .hero-eyebrow {
       display: inline-block;
@@ -479,15 +479,15 @@
 
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 1200px) {
-      .hero-photo-wrap img { max-width: 900px; }
-      .hero-photo-wrap { margin-top: -240px; }
-      .hero-text { padding-top: 200px; }
+      .hero-photo-wrap img { max-width: 680px; }
+      .hero-photo-wrap { margin-top: -100px; }
+      .hero-text { padding-top: 80px; }
     }
     @media (max-width: 1024px) {
       .hero-grid { gap: 20px; }
-      .hero-photo-wrap img { max-width: 750px; }
-      .hero-photo-wrap { margin-top: -160px; }
-      .hero-text { padding-top: 140px; }
+      .hero-photo-wrap img { max-width: 600px; }
+      .hero-photo-wrap { margin-top: -80px; }
+      .hero-text { padding-top: 60px; }
       .about-grid { gap: 40px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
