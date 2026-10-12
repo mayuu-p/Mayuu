@@ -71,7 +71,7 @@
       66% { transform: translate(-30px, 50px) scale(0.95); }
     }
 
-    /* ==================== FLOATING BALLS ==================== */
+    /* ==================== FLOATING BALLS — FULL PAGE ==================== */
     .particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
     .particle {
       position: absolute;
@@ -82,11 +82,11 @@
       will-change: transform, opacity;
     }
     @keyframes particleFloat {
-      0% { transform: translateY(0) translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      50% { opacity: 0.8; transform: translateY(-50vh) translateX(20px); }
-      90% { opacity: 1; }
-      100% { transform: translateY(-115vh) translateX(60px); opacity: 0; }
+      0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      10% { opacity: 0.9; }
+      50% { opacity: 0.7; transform: translateY(-50vh) translateX(30px) scale(1.1); }
+      90% { opacity: 0.9; }
+      100% { transform: translateY(-120vh) translateX(-30px) scale(0.9); opacity: 0; }
     }
 
     /* ==================== LAYOUT ==================== */
@@ -124,6 +124,9 @@
     .nav-cta { background: var(--royal) !important; color: var(--white) !important; padding: 10px 22px !important; border-radius: 8px !important; font-weight: 600 !important; box-shadow: 0 4px 14px rgba(6, 71, 196, 0.25); }
     .hamburger { display: none; font-size: 1.5rem; color: var(--navy); padding: 8px; border-radius: 8px; transition: background 0.3s; cursor: pointer; }
     .hamburger:active { background: rgba(6, 71, 196, 0.1); }
+
+    /* Nav icons hidden on desktop/tablet by default */
+    .nav-links a .mobile-icon { display: none; }
 
     /* ==================== HERO DESKTOP ==================== */
     #home { padding-top: 80px; padding-bottom: 0; background: transparent; position: relative; overflow: hidden; display: flex; align-items: flex-start; }
@@ -206,22 +209,38 @@
 
     /* ==================== CONTACT ==================== */
     #contact { background: rgba(243, 246, 250, 0.7); backdrop-filter: blur(10px); }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-    .contact-card { background: var(--white); border-radius: 12px; padding: 32px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; transition: all 0.4s; box-shadow: 0 4px 20px rgba(16, 46, 105, 0.05); border-bottom: 3px solid transparent; text-align: center; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .contact-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 24px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 18px;
+      transition: all 0.4s;
+      box-shadow: 0 4px 20px rgba(16, 46, 105, 0.05);
+      border-bottom: 3px solid transparent;
+      text-align: center;
+    }
     .contact-card:hover { transform: translateY(-6px) scale(1.03); border-bottom-color: var(--royal); box-shadow: 0 20px 40px rgba(6, 71, 196, 0.15); }
     .contact-card .icon {
-      font-size: 1.8rem;
-      width: 60px; height: 60px;
+      width: 72px; height: 72px;
       display: flex; align-items: center; justify-content: center;
       background: rgba(6, 71, 196, 0.08);
-      border-radius: 14px;
+      border-radius: 18px;
       flex-shrink: 0;
       transition: all 0.3s;
     }
     .contact-card:hover .icon { background: var(--royal); transform: scale(1.08) rotate(-5deg); }
     .contact-card:hover .icon svg { stroke: var(--white); }
-    .contact-card .icon svg { width: 28px; height: 28px; stroke: var(--royal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .contact-card .label { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+    .contact-card .icon svg { width: 34px; height: 34px; stroke: var(--royal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-card .label { font-size: 1rem; font-weight: 700; color: var(--navy); }
 
     /* ==================== FOOTER (desktop) ==================== */
     footer { background: var(--navy); color: rgba(255,255,255,0.8); padding: 60px 0 30px; position: relative; z-index: 2; }
@@ -236,7 +255,6 @@
     .footer-nav-list a:hover { color: var(--white); transform: translateX(6px); }
     .footer-nav-list a svg { width: 18px; height: 18px; stroke: var(--bright); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-    /* Big icons in footer — now 3 only (Email, Instagram, Phone) */
     .footer-big-icons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
     .footer-big-icon {
       width: 62px; height: 62px;
@@ -266,7 +284,6 @@
       .mobile-only { display: block !important; }
 
       nav { background: rgba(255,255,255,0.98); }
-      /* Mobile 3-lines popup — chhota, right side, fully functional */
       .nav-links {
         display: none;
         position: absolute;
@@ -296,25 +313,12 @@
         color: var(--navy);
         font-weight: 500;
       }
-      .nav-links a svg {
-        width: 18px; height: 18px;
-        stroke: var(--royal); fill: none;
-        stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-        flex-shrink: 0;
-      }
+      .nav-links a .mobile-icon { display: block; width: 18px; height: 18px; stroke: var(--royal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
       .nav-links a:active { background: var(--light); color: var(--royal); }
       .nav-links a.active { background: rgba(6, 71, 196, 0.1); color: var(--royal); font-weight: 600; }
       .nav-links a.active::after { display: none; }
-      .nav-cta {
-        margin-top: 6px;
-        padding: 12px 14px !important;
-        background: var(--royal) !important;
-        color: var(--white) !important;
-        justify-content: center;
-        font-weight: 600 !important;
-        border-radius: 8px !important;
-      }
-      .nav-cta svg { stroke: var(--white) !important; }
+      .nav-cta { margin-top: 6px; padding: 12px 14px !important; background: var(--royal) !important; color: var(--white) !important; justify-content: center; font-weight: 600 !important; border-radius: 8px !important; }
+      .nav-cta .mobile-icon { stroke: var(--white) !important; }
       .hamburger { display: block; }
       .nav-inner { height: 68px; }
       .brand { font-size: 1.1rem; }
@@ -402,24 +406,11 @@
       .mobile-vision-title { font-size: 1.35rem; font-weight: 800; color: var(--white); margin-bottom: 12px; line-height: 1.2; position: relative; }
       .mobile-vision-text { font-size: 0.85rem; color: rgba(255,255,255,0.9); line-height: 1.7; position: relative; }
 
-      /* Mobile contact — only icons + names */
       .mobile-connect-sub { font-size: 0.85rem; color: var(--body); margin-bottom: 18px; }
-      .mobile-connect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-      .mobile-connect-card {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 20px 10px;
-        display: flex; flex-direction: column; align-items: center; gap: 10px;
-        text-align: center; box-shadow: 0 4px 15px rgba(16, 46, 105, 0.06);
-        transition: all 0.3s;
-      }
+      .mobile-connect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .mobile-connect-card { background: var(--white); border-radius: 16px; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; box-shadow: 0 4px 15px rgba(16, 46, 105, 0.06); }
       .mobile-connect-card:active { transform: scale(0.96); }
-      .mobile-connect-icon {
-        width: 48px; height: 48px; border-radius: 12px;
-        background: rgba(6, 71, 196, 0.08);
-        display: flex; align-items: center; justify-content: center;
-        transition: all 0.3s;
-      }
+      .mobile-connect-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(6, 71, 196, 0.08); display: flex; align-items: center; justify-content: center; }
       .mobile-connect-icon svg { width: 24px; height: 24px; stroke: var(--royal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
       .mobile-connect-label { font-size: 0.78rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
 
@@ -439,11 +430,24 @@
        TABLET (769px - 1024px)
        ============================================================ */
     @media (min-width: 769px) and (max-width: 1024px) {
+      .nav-links a .mobile-icon { display: none !important; }
+      .nav-links a {
+        padding: 8px 14px;
+        font-size: 0.88rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0;
+        background: transparent;
+      }
       .hero-grid { gap: 20px; }
       .hero-photo-wrap img { max-width: 600px; }
       .hero-photo-wrap { margin-top: -80px; }
       .hero-text { padding-top: 60px; }
       .about-grid { gap: 40px; }
+      .contact-grid { gap: 28px; max-width: 100%; }
+      .contact-card { padding: 32px 20px; }
+      .contact-card .icon { width: 64px; height: 64px; }
+      .contact-card .icon svg { width: 30px; height: 30px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
       .footer-grid > div:first-child { grid-column: 1 / -1; }
       .footer-big-icon { width: 58px; height: 58px; }
@@ -464,7 +468,7 @@
       .mobile-feature-sub { font-size: 0.52rem; }
       .mobile-section { padding: 32px 16px; }
       .mobile-section-title { font-size: 1.35rem; }
-      .mobile-connect-grid { gap: 8px; }
+      .mobile-connect-grid { gap: 10px; }
       .mobile-connect-card { padding: 16px 8px; }
       .mobile-connect-icon { width: 42px; height: 42px; }
       .mobile-connect-icon svg { width: 22px; height: 22px; }
@@ -504,7 +508,6 @@
     <div class="container nav-inner">
       <a href="#home" class="brand">MAYUR <span>PISAL</span></a>
       <div class="nav-links" id="navLinks">
-        <!-- Desktop: no icons (pehle jaise) ; Mobile: icons -->
         <a href="#home" class="active" data-nav="home">
           <svg class="mobile-icon" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg>
           Home
@@ -531,7 +534,6 @@
   </nav>
 
   <section id="home">
-    <!-- DESKTOP HERO -->
     <div class="container hero-grid desktop-only">
       <div class="hero-text reveal">
         <div class="hero-eyebrow">INDEPENDENT BUILDER • CYBERSECURITY ENTHUSIAST</div>
@@ -548,7 +550,6 @@
       </div>
     </div>
 
-    <!-- MOBILE HERO -->
     <div class="mobile-hero mobile-only">
       <div class="mobile-hero-inner">
         <div class="mobile-hero-eyebrow">INDEPENDENT BUILDER · CYBERSECURITY ENTHUSIAST</div>
@@ -591,7 +592,6 @@
     </div>
   </section>
 
-  <!-- ABOUT desktop -->
   <section id="about" class="desktop-only">
     <div class="container">
       <div class="reveal">
@@ -615,7 +615,6 @@
     </div>
   </section>
 
-  <!-- ABOUT mobile -->
   <div class="mobile-only mobile-section" id="about-mobile">
     <div class="mobile-section-label">01 · ABOUT</div>
     <div class="mobile-section-title">ABOUT ME</div>
@@ -628,7 +627,6 @@
     </div>
   </div>
 
-  <!-- PROJECTS desktop -->
   <section id="projects" class="desktop-only">
     <div class="container">
       <div class="projects-header">
@@ -646,14 +644,12 @@
     </div>
   </section>
 
-  <!-- PROJECTS mobile -->
   <div class="mobile-only mobile-section" id="projects-mobile">
     <div class="mobile-section-label">02 · PROJECTS</div>
     <div class="mobile-section-title">MY PROJECTS</div>
     <div class="mobile-project-list" id="mobileProjectList"></div>
   </div>
 
-  <!-- SKILLS desktop -->
   <section id="skills" class="desktop-only">
     <div class="container">
       <div class="reveal">
@@ -674,7 +670,6 @@
     </div>
   </section>
 
-  <!-- SKILLS mobile -->
   <div class="mobile-only mobile-section" id="skills-mobile">
     <div class="mobile-section-label">03 · SKILLS</div>
     <div class="mobile-section-title">SKILLS &amp; INTERESTS</div>
@@ -688,7 +683,6 @@
     </div>
   </div>
 
-  <!-- VISION desktop -->
   <section id="vision" class="desktop-only">
     <div class="container vision-content reveal">
       <div class="section-label">Future Vision</div>
@@ -698,7 +692,6 @@
     </div>
   </section>
 
-  <!-- VISION mobile -->
   <div class="mobile-only mobile-section" id="vision-mobile">
     <div class="mobile-vision-box">
       <div class="mobile-vision-label">04 · VISION</div>
@@ -707,7 +700,6 @@
     </div>
   </div>
 
-  <!-- CONTACT desktop — only icons + names, no values -->
   <section id="contact" class="desktop-only">
     <div class="container">
       <div class="reveal">
@@ -732,7 +724,6 @@
     </div>
   </section>
 
-  <!-- CONTACT mobile — only icons + names -->
   <div class="mobile-only mobile-section" id="contact-mobile">
     <div class="mobile-section-label">05 · CONNECT</div>
     <div class="mobile-section-title">LET'S CONNECT</div>
@@ -753,7 +744,6 @@
     </div>
   </div>
 
-  <!-- FOOTER desktop — only 3 icons (Email, Instagram, Phone) -->
   <footer class="desktop-only">
     <div class="container">
       <div class="footer-grid">
@@ -790,7 +780,6 @@
     </div>
   </footer>
 
-  <!-- FOOTER mobile -->
   <div class="mobile-only mobile-footer">
     <div class="mobile-footer-top">
       <div>
@@ -837,22 +826,22 @@
       });
     }
 
-    // BALLS — MANY, continuously moving on all devices
+    // BALLS — FULL PAGE, continuously moving on all devices
     const particlesContainer = document.getElementById('particles');
     function createParticles() {
       const isMobile = window.innerWidth < 768;
-      const count = isMobile ? 40 : 80;
+      const count = isMobile ? 60 : 120;
       particlesContainer.innerHTML = '';
       for (let i = 0; i < count; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
-        const size = Math.random() * 6 + 3;
+        const size = Math.random() * 6 + 2;
         p.style.left = Math.random() * 100 + '%';
-        p.style.top = (Math.random() * 100 + 100) + '%';
+        p.style.top = (Math.random() * 150 + 100) + '%';
         p.style.width = size + 'px';
         p.style.height = size + 'px';
-        p.style.animationDuration = (Math.random() * 18 + 10) + 's';
-        p.style.animationDelay = (Math.random() * 25) + 's';
+        p.style.animationDuration = (Math.random() * 25 + 15) + 's';
+        p.style.animationDelay = (Math.random() * 40) + 's';
         particlesContainer.appendChild(p);
       }
     }
@@ -904,14 +893,13 @@
     }, { threshold: 0.25, rootMargin: '-80px 0px -40% 0px' });
     sections.forEach(s => navObserver.observe(s));
 
-    // HAMBURGER — mobile 3-lines
+    // HAMBURGER
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
       navLinks.classList.toggle('open');
     });
-    // All nav links working (desktop + mobile)
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', (e) => {
         e.preventDefault();
@@ -925,7 +913,6 @@
         }
       });
     });
-    // Click anywhere else to close popup
     document.addEventListener('click', (e) => {
       if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
         navLinks.classList.remove('open');
