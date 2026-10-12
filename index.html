@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Mayur Pisal — Independent Builder & Cybersecurity Enthusiast. Building Technology. Exploring Security. Creating What's Next." />
+  <meta name="description" content="Mayur Pisal — Independent Builder & Cybersecurity Enthusiast." />
   <meta name="theme-color" content="#0647C4" />
   <title>Mayur Pisal | Independent Builder & Cybersecurity Enthusiast</title>
   <style>
-    /* ==================== RESET & VARIABLES ==================== */
     :root {
       --royal: #0647C4;
       --navy: #102E69;
@@ -72,22 +71,22 @@
       66% { transform: translate(-30px, 50px) scale(0.95); }
     }
 
-    /* ==================== FLOATING PARTICLES (balls) ==================== */
+    /* ==================== FLOATING PARTICLES (balls) — MORE ==================== */
     .particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
     .particle {
       position: absolute;
       background: var(--bright);
       border-radius: 50%;
-      box-shadow: 0 0 12px rgba(40, 120, 229, 0.9);
+      box-shadow: 0 0 15px rgba(40, 120, 229, 0.9);
       animation: particleFloat linear infinite;
       will-change: transform, opacity;
     }
     @keyframes particleFloat {
       0% { transform: translateY(0) translateX(0); opacity: 0; }
-      10% { opacity: 0.7; }
-      50% { opacity: 0.5; transform: translateY(-50vh) translateX(20px); }
-      90% { opacity: 0.7; }
-      100% { transform: translateY(-110vh) translateX(50px); opacity: 0; }
+      10% { opacity: 0.8; }
+      50% { opacity: 0.6; transform: translateY(-50vh) translateX(20px); }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(-115vh) translateX(60px); opacity: 0; }
     }
 
     /* ==================== LAYOUT ==================== */
@@ -97,7 +96,6 @@
     .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
     .section-desc { color: var(--body); font-size: 1.05rem; max-width: 640px; }
 
-    /* ==================== REVEAL ==================== */
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -203,15 +201,31 @@
     .contact-card .label { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
     .contact-card .value { font-size: 0.85rem; color: var(--body); word-break: break-all; }
 
-    /* ==================== FOOTER ==================== */
+    /* ==================== FOOTER (desktop) ==================== */
     footer { background: var(--navy); color: rgba(255,255,255,0.8); padding: 60px 0 30px; position: relative; z-index: 2; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-    .footer-brand { font-size: 1.4rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px; align-items: flex-start; }
+    .footer-brand { font-size: 1.5rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
     .footer-brand span { color: var(--bright); }
-    .footer-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.7); max-width: 320px; line-height: 1.7; }
+    .footer-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.7); max-width: 340px; line-height: 1.7; }
     .footer-col h4 { color: var(--white); font-size: 0.9rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.1em; }
     .footer-col a { display: block; color: rgba(255,255,255,0.7); font-size: 0.9rem; padding: 4px 0; }
     .footer-col a:hover { color: var(--white); transform: translateX(5px); }
+
+    /* BIG ICONS in footer */
+    .footer-big-icons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+    .footer-big-icon {
+      width: 62px; height: 62px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      color: var(--white);
+    }
+    .footer-big-icon:hover { background: var(--bright); transform: translateY(-5px) scale(1.08); box-shadow: 0 15px 30px rgba(40, 120, 229, 0.4); }
+    .footer-big-icon svg { width: 28px; height: 28px; stroke: currentColor; fill: none; }
+    .footer-big-label { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.7); margin-top: 6px; text-align: center; font-weight: 600; }
+
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
 
     .mobile-only { display: none; }
@@ -228,11 +242,13 @@
       .mobile-only { display: block !important; }
 
       nav { background: rgba(255,255,255,0.98); }
-      .nav-links { display: none; position: absolute; top: 76px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px; box-shadow: 0 10px 25px rgba(16, 46, 105, 0.1); gap: 4px; border-radius: 0 0 16px 16px; }
-      .nav-links.open { display: flex; }
-      .nav-links a { width: 100%; padding: 14px 16px; font-size: 0.95rem; border-radius: 10px; }
+      .nav-links { display: none; position: absolute; top: 68px; right: 16px; left: auto; width: 220px; background: var(--white); flex-direction: column; padding: 10px; box-shadow: 0 12px 35px rgba(16, 46, 105, 0.18); gap: 2px; border-radius: 14px; border: 1px solid var(--border); }
+      .nav-links.open { display: flex; animation: popIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
+      @keyframes popIn { from { opacity: 0; transform: translateY(-10px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      .nav-links a { width: 100%; padding: 11px 14px; font-size: 0.9rem; border-radius: 8px; text-align: left; }
+      .nav-links a.active { background: rgba(6, 71, 196, 0.1); }
       .nav-links a.active::after { display: none; }
-      .nav-cta { text-align: center; margin-top: 8px; }
+      .nav-cta { text-align: center; margin-top: 4px; padding: 11px 14px !important; }
       .hamburger { display: block; }
       .nav-inner { height: 68px; }
       .brand { font-size: 1.1rem; }
@@ -241,7 +257,6 @@
       .orb-2 { width: 260px; height: 260px; }
       .orb-3 { width: 220px; height: 220px; }
 
-      /* MOBILE HERO */
       #home { padding: 0; background: linear-gradient(180deg, #EEF3FB 0%, #F8FAFE 100%); display: block; }
       .mobile-hero { display: block; padding: 88px 0 30px; position: relative; overflow: hidden; }
       .mobile-hero-inner { position: relative; z-index: 2; padding: 0 20px; max-width: 480px; margin: 0 auto; }
@@ -286,7 +301,6 @@
       .mobile-feature-title { font-size: 0.68rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
       .mobile-feature-sub { font-size: 0.56rem; color: var(--body); line-height: 1.2; }
 
-      /* MOBILE SECTIONS */
       .mobile-section { padding: 40px 20px; background: transparent; position: relative; z-index: 2; }
       .mobile-section-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bright); font-weight: 700; margin-bottom: 6px; }
       .mobile-section-title { font-size: 1.5rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
@@ -344,7 +358,7 @@
     }
 
     /* ============================================================
-       TABLET (769px - 1024px) — DESKTOP LAYOUT
+       TABLET (769px - 1024px)
        ============================================================ */
     @media (min-width: 769px) and (max-width: 1024px) {
       .hero-grid { gap: 20px; }
@@ -352,7 +366,10 @@
       .hero-photo-wrap { margin-top: -80px; }
       .hero-text { padding-top: 60px; }
       .about-grid { gap: 40px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-grid > div:first-child { grid-column: 1 / -1; }
+      .footer-big-icon { width: 58px; height: 58px; }
+      .footer-big-icon svg { width: 26px; height: 26px; }
     }
 
     @media (max-width: 480px) {
@@ -369,14 +386,8 @@
       .mobile-feature-sub { font-size: 0.52rem; }
       .mobile-section { padding: 32px 16px; }
       .mobile-section-title { font-size: 1.35rem; }
-      .mobile-project-icon { width: 42px; height: 42px; }
-      .mobile-project-icon svg { width: 22px; height: 22px; }
-      .mobile-project-name { font-size: 0.88rem; }
-      .mobile-project-desc { font-size: 0.7rem; }
       .mobile-connect-grid { gap: 8px; }
       .mobile-connect-card { padding: 12px 6px; }
-      .mobile-connect-icon { width: 34px; height: 34px; }
-      .mobile-connect-icon svg { width: 18px; height: 18px; }
       .mobile-connect-value { font-size: 0.55rem; }
     }
 
@@ -532,7 +543,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS mobile (View All hataya) -->
+  <!-- PROJECTS mobile -->
   <div class="mobile-only mobile-section" id="projects-mobile">
     <div class="mobile-section-label">02 · PROJECTS</div>
     <div class="mobile-section-title">MY PROJECTS</div>
@@ -605,7 +616,7 @@
     </div>
   </section>
 
-  <!-- CONTACT mobile (email fixed) -->
+  <!-- CONTACT mobile -->
   <div class="mobile-only mobile-section" id="contact-mobile">
     <div class="mobile-section-label">05 · CONNECT</div>
     <div class="mobile-section-title">LET'S CONNECT</div>
@@ -629,7 +640,7 @@
     </div>
   </div>
 
-  <!-- FOOTER desktop -->
+  <!-- FOOTER desktop — with BIG ICONS -->
   <footer class="desktop-only">
     <div class="container">
       <div class="footer-grid">
@@ -647,7 +658,20 @@
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <div id="footerSocial"></div>
+          <div class="footer-big-icons">
+            <a href="mailto:mayou7496@gmail.com" class="footer-big-icon" aria-label="Email" title="Email">
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+            <a href="https://instagram.com/mayur_9903_" target="_blank" rel="noopener" class="footer-big-icon" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="tel:+919903256006" class="footer-big-icon" aria-label="Phone" title="Phone">
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a href="https://github.com/mayuu-p" target="_blank" rel="noopener" class="footer-big-icon" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">© <span id="year"></span> Mayur Pisal — Independent Builder & Cybersecurity Enthusiast.</div>
@@ -685,7 +709,7 @@
       ]
     };
 
-    // CURSOR (desktop only)
+    // CURSOR (desktop + tablet only)
     const cursorGlow = document.getElementById('cursorGlow');
     const cursorDot = document.getElementById('cursorDot');
     let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
@@ -700,34 +724,36 @@
         cursorGlow.style.left = glowX + 'px'; cursorGlow.style.top = glowY + 'px';
         requestAnimationFrame(animateGlow);
       })();
-      document.querySelectorAll('a, button, .project-card, .skill-item, .contact-card, .about-stat').forEach(el => {
+      document.querySelectorAll('a, button, .project-card, .skill-item, .contact-card, .about-stat, .footer-big-icon').forEach(el => {
         el.addEventListener('mouseenter', () => cursorDot.classList.add('hovering'));
         el.addEventListener('mouseleave', () => cursorDot.classList.remove('hovering'));
       });
     }
 
-    // PARTICLES — all devices
+    // PARTICLES — MANY balls, all devices
     const particlesContainer = document.getElementById('particles');
     function createParticles() {
       const isMobile = window.innerWidth < 768;
-      const count = isMobile ? 20 : 35;
+      // MORE balls now
+      const count = isMobile ? 35 : 70;
       particlesContainer.innerHTML = '';
       for (let i = 0; i < count; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
-        const size = Math.random() * 4 + 2;
+        const size = Math.random() * 5 + 2;
         p.style.left = Math.random() * 100 + '%';
         p.style.top = (Math.random() * 100 + 100) + '%';
         p.style.width = size + 'px';
         p.style.height = size + 'px';
-        p.style.animationDuration = (Math.random() * 15 + 15) + 's';
-        p.style.animationDelay = (Math.random() * 20) + 's';
+        p.style.animationDuration = (Math.random() * 20 + 12) + 's';
+        p.style.animationDelay = (Math.random() * 25) + 's';
+        p.style.opacity = Math.random() * 0.5 + 0.4;
         particlesContainer.appendChild(p);
       }
     }
     createParticles();
 
-    // 3D PHOTO TILT (desktop only)
+    // 3D PHOTO TILT (desktop + tablet only)
     const photoWrap = document.getElementById('photoWrap');
     const heroPhoto = document.getElementById('heroPhoto');
     if (!isTouchDevice && photoWrap && heroPhoto) {
@@ -824,7 +850,6 @@
 
     // DESKTOP CONTACTS
     const contactGrid = document.getElementById('contactGrid');
-    const footerSocial = document.getElementById('footerSocial');
     if (contactGrid) {
       const contacts = [
         { icon: '📧', label: 'Email', value: CONFIG.email, href: `mailto:${CONFIG.email}` },
@@ -833,7 +858,6 @@
         { icon: '📱', label: 'Mobile', value: CONFIG.phone, href: `tel:${CONFIG.phone}` }
       ];
       contactGrid.innerHTML = contacts.map((c, i) => `<a href="${c.href}" class="contact-card reveal" style="transition-delay: ${i * 0.1}s" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}><span class="icon">${c.icon}</span><div><div class="label">${c.label}</div><div class="value">${c.value}</div></div></a>`).join('');
-      if (footerSocial) footerSocial.innerHTML = contacts.map(c => `<a href="${c.href}" ${c.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>${c.icon} ${c.label}</a>`).join('');
       document.querySelectorAll('.contact-card.reveal').forEach(el => revealObserver.observe(el));
     }
 
@@ -847,7 +871,7 @@
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', () => navLinks.classList.remove('open'));
     });
-    // Click anywhere else to close
+    // Click anywhere else to close popup
     document.addEventListener('click', (e) => {
       if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
         navLinks.classList.remove('open');
@@ -863,7 +887,7 @@
     // ESC
     document.addEventListener('keydown', e => { if (e.key === 'Escape') navLinks.classList.remove('open'); });
 
-    // BLOCK ZOOM (double-tap, ctrl+wheel, keyboard)
+    // BLOCK ZOOM
     document.addEventListener('wheel', (e) => { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && ['+', '-', '=', '0'].includes(e.key)) e.preventDefault();
@@ -875,7 +899,7 @@
       lastTouchEnd = now;
     }, false);
 
-    // BLOCK RIGHT CLICK, COPY, CUT, CONTEXTMENU, TEXT SELECT
+    // BLOCK COPY/CUT/CONTEXTMENU
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('copy', e => e.preventDefault());
     document.addEventListener('cut', e => e.preventDefault());
