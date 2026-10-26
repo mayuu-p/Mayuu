@@ -489,6 +489,92 @@
       html { scroll-behavior: auto; }
       .reveal { opacity: 1; transform: none; }
     }
+  
+/* === MAYUU LIQUID GLASS THEME — preserves existing portfolio content === */
+:root {
+  --royal:#1769c2;
+  --navy:#183b69;
+  --bright:#5aa9ed;
+  --light:#eaf5ff;
+  --body:#425b73;
+  --border:rgba(255,255,255,.62);
+}
+html { background:#7da9d8; scroll-behavior:smooth; }
+body {
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(181,226,255,.92) 0%, transparent 38%),
+    radial-gradient(ellipse at 88% 22%, rgba(222,213,255,.85) 0%, transparent 34%),
+    radial-gradient(ellipse at 70% 88%, rgba(185,224,255,.9) 0%, transparent 40%),
+    linear-gradient(135deg,#8db9e6 0%,#d8eaff 48%,#c8c9f7 100%);
+  background-attachment:fixed;
+}
+.bg-lights { opacity:.42; }
+.orb { filter:blur(95px); opacity:.34; }
+.particle { opacity:.42; box-shadow:0 0 12px rgba(90,169,237,.55); }
+nav, nav.scrolled {
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:0 10px 35px rgba(52,99,153,.12);
+  backdrop-filter:blur(28px) saturate(150%);
+  -webkit-backdrop-filter:blur(28px) saturate(150%);
+}
+#about,#projects,#skills,#contact {
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+.project-card,.about-stat,.skill-item,.contact-card {
+  background:rgba(255,255,255,.74);
+  border:1px solid rgba(255,255,255,.82);
+  box-shadow:0 12px 35px rgba(54,103,155,.10),inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter:blur(20px) saturate(135%);
+  -webkit-backdrop-filter:blur(20px) saturate(135%);
+  border-radius:22px;
+}
+.project-card:hover,.about-stat:hover,.skill-item:hover,.contact-card:hover {
+  box-shadow:0 20px 48px rgba(54,103,155,.18),inset 0 1px 0 rgba(255,255,255,.95);
+}
+.project-art {
+  background:linear-gradient(135deg,rgba(107,184,239,.95),rgba(172,174,247,.95));
+}
+.project-card .stack span {
+  background:rgba(83,157,220,.14);
+  color:#174f8a;
+}
+.github-top-icon,.btn-primary {
+  background:linear-gradient(135deg,#236fc0,#69b9ed);
+  box-shadow:0 8px 24px rgba(42,116,181,.23);
+}
+.btn-outline { border-color:rgba(31,83,133,.5); }
+.hero-eyebrow { background:rgba(255,255,255,.58); }
+.hero-title .accent::after { background:rgba(112,184,238,.27); }
+footer { background:rgba(30,65,111,.92); backdrop-filter:blur(24px); }
+#vision { background:linear-gradient(135deg,rgba(37,89,148,.94),rgba(87,135,201,.92)); }
+::selection { background:#6cb7ef; color:#fff; }
+@media (max-width:768px) {
+  body {
+    background:
+      radial-gradient(ellipse at 0% 0%,rgba(190,229,255,.95),transparent 42%),
+      radial-gradient(ellipse at 100% 40%,rgba(220,215,255,.82),transparent 42%),
+      linear-gradient(160deg,#e8f5ff,#d8e8ff 55%,#e5e2ff);
+    background-attachment:scroll;
+  }
+  nav { background:rgba(255,255,255,.84); }
+  .nav-links { background:rgba(255,255,255,.94); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); }
+  .mobile-project-item,.mobile-connect-card,.mobile-vision-box,.mobile-about-card,.mobile-skill-item {
+    background:rgba(255,255,255,.78);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 10px 28px rgba(54,103,155,.10);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-radius:20px;
+  }
+  .project-card,.about-stat,.skill-item,.contact-card { border-radius:20px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; }
+}
+
   </style>
 </head>
 <body>
